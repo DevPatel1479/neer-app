@@ -1,0 +1,27 @@
+{
+  "@@locale": "hi",
+  "appBarTitle": "कृपया पारिस्थितिकी तंत्र चुनें",
+  "@appBarTitle": {
+    "description": "पारिस्थितिकी तंत्र चयन के लिए AppBar पर प्रदर्शित शीर्षक"
+  },
+  "lakeLabel": "झील",
+  "@lakeLabel": {
+    "description": "झील विकल्प के लिए लेबल"
+  },
+  "reservoirLabel": "जलाशय",
+  "@reservoirLabel": {
+    "description": "जलाशय विकल्प के लिए लेबल"
+  },
+  "wetlandLabel": "आर्द्रभूमि",
+  "@wetlandLabel": {
+    "description": "आर्द्रभूमि विकल्प के लिए लेबल"
+  },
+  "riverStreamLabel": "नदी/धारा",
+  "@riverStreamLabel": {
+    "description": "नदी/धारा विकल्प के लिए लेबल"
+  },
+  "footerMessage": "कृपया एक जल निकाय चुनें",
+  "@footerMessage": {
+    "description": "उपयोगकर्ता को एक जल निकाय चुनने के लिए कहने वाला संदेश"
+  }
+}

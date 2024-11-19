@@ -1,0 +1,15 @@
+{
+  "@@locale": "hi",
+  "waterButtonText": "पानी",
+  "@waterButtonText": {
+    "description": "Text for the 'Water' button"
+  },
+  "newMeasurementButtonText": "नया माप",
+  "@newMeasurementButtonText": {
+    "description": "Text for the 'New Measurement' button"
+  },
+  "defaultPitchValue": "0.00",
+  "@defaultPitchValue": {
+    "description": "Default value for pitch angle display"
+  }
+}

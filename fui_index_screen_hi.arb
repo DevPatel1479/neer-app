@@ -1,0 +1,9 @@
+{
+  "@@locale": "hi",
+  "instructionsTitle": "FUI इंडेक्स का उपयोग करने के निर्देश",
+  "backButton": "वापस",
+  "capturePhotoInstruction": "जलाशय का फोटो कैप्चर करें, 'Proceed' बटन पर क्लिक करें और इंडेक्स मान दर्ज करें।",
+  "calculateFUIInstruction": "तस्वीर से FUI इंडेक्स मान की गणना करें और सत्यापित करें।",
+  "proceedButtonText": "आगे बढ़ने के लिए क्लिक करें",
+  "proceedButtonIcon": "आगे बढ़ें"
+}

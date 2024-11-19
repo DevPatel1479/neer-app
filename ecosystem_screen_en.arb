@@ -1,0 +1,27 @@
+{
+  "@@locale": "en",
+  "appBarTitle": "Please Select the Ecosystem",
+  "@appBarTitle": {
+    "description": "Title displayed on the AppBar for ecosystem selection"
+  },
+  "lakeLabel": "Lake",
+  "@lakeLabel": {
+    "description": "Label for the Lake option"
+  },
+  "reservoirLabel": "Reservoir",
+  "@reservoirLabel": {
+    "description": "Label for the Reservoir option"
+  },
+  "wetlandLabel": "Wet Land",
+  "@wetlandLabel": {
+    "description": "Label for the Wet Land option"
+  },
+  "riverStreamLabel": "River/Stream",
+  "@riverStreamLabel": {
+    "description": "Label for the River/Stream option"
+  },
+  "footerMessage": "Please Select One WaterBody",
+  "@footerMessage": {
+    "description": "Footer message asking the user to select one water body"
+  }
+}

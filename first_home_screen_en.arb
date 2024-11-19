@@ -1,0 +1,8 @@
+{
+  "@@locale": "en",
+  "app_title": "NEER",
+  "welcome_button": "WELCOME",
+  "help_button": "Help",
+  "project_description": "Developed as a part of project 'NEER' funded by DST under 'WTI 2019'",
+  "back_button_tooltip": "Go Back"
+}

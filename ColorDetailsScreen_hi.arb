@@ -1,0 +1,27 @@
+{
+  "@@locale": "hi",
+  "appBarTitle": "रंग विवरण",
+  "@appBarTitle": {
+    "description": "Color Details स्क्रीन में AppBar का शीर्षक"
+  },
+  "colorInfoLabel": "रंग जानकारी: {colorInfo}",
+  "@colorInfoLabel": {
+    "description": "रंग जानकारी प्रदर्शित करने के लिए लेबल"
+  },
+  "xLabel": "एक्स: {x}",
+  "@xLabel": {
+    "description": "एक्स मान प्रदर्शित करने के लिए लेबल"
+  },
+  "yLabel": "वाई: {y}",
+  "@yLabel": {
+    "description": "वाई मान प्रदर्शित करने के लिए लेबल"
+  },
+  "correctedAngleLabel": "सुधार किया गया कोण: {correctedAngle}",
+  "@correctedAngleLabel": {
+    "description": "सुधार किया गया कोण प्रदर्शित करने के लिए लेबल"
+  },
+  "angleLabel": "कोण: {angle}",
+  "@angleLabel": {
+    "description": "कोण प्रदर्शित करने के लिए लेबल"
+  }
+}
