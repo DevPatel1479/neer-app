@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "430115449830",
+    "firebase_url": "https://neer-db-default-rtdb.firebaseio.com",
+    "project_id": "neer-db",
+    "storage_bucket": "neer-db.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:430115449830:android:e9e8a2ff158b79ae674427",
+        "android_client_info": {
+          "package_name": "com.example.neer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "430115449830-unmidl3kufqhjp5qlovlv4tpagd68nh7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.neer",
+            "certificate_hash": "ef3bbeaf231d94f9d4fa3fc453d45eed78c52203"
+          }
+        },
+        {
+          "client_id": "430115449830-qgevg9fbnvr83h1p8t7q5do12maj40mv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhJLQ1w_BuDb39HT9FDZ5Om1YkJi66Mwk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "430115449830-qgevg9fbnvr83h1p8t7q5do12maj40mv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
