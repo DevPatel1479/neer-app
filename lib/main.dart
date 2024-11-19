@@ -1,6 +1,3 @@
-
-
-
 import 'package:flutter/material.dart';
 import 'package:neer/splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
