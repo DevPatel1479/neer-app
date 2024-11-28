@@ -1,0 +1,20 @@
+{
+  "@@locale": "gu",
+  "appTitle": "નવું ખાતું બનાવો",
+  "firstName": "પ્રથમ નામ",
+  "lastName": "છેલ્લું નામ",
+  "instituteName": "સંસ્થાનું નામ",
+  "selectState": "રાજ્ય પસંદ કરો",
+  "selectCity": "શહેર પસંદ કરો",
+  "selectStateHint": "એક રાજ્ય પસંદ કરો",
+  "selectCityHint": "એક શહેર પસંદ કરો",
+  "selectCityDisabledHint": "પહેલા એક રાજ્ય પસંદ કરો",
+  "registerButton": "નોંધણી કરો",
+  "userExistsError": "આ ઇમેઇલ સાથેનો વપરાશકર્તા પહેલેથી જ અસ્તિત્વમાં છે!",
+  "formSubmissionError": "ફોર્મ સબમિટ કરવામાં નિષ્ફળ. કૃપા કરીને થોડીવાર પછી ફરી પ્રયાસ કરો.",
+  "stateValidationError": "કૃપા કરીને રાજ્ય પસંદ કરો",
+  "cityValidationError": "કૃપા કરીને એક શહેર પસંદ કરો",
+  "firstNameValidationError": "કૃપા કરીને ફક્ત આલ્ફાબેટિકલ અક્ષરો દાખલ કરો",
+  "lastNameValidationError": "કૃપા કરીને ફક્ત આલ્ફાબેટિકલ અક્ષરો દાખલ કરો",
+  "instituteNameValidationError": "સંસ્થાનું નામ દાખલ કરો"
+}

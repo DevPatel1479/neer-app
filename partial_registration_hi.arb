@@ -1,0 +1,20 @@
+{
+  "@@locale": "hi",
+  "appTitle": "नया खाता बनाएं",
+  "firstName": "पहला नाम",
+  "lastName": "अंतिम नाम",
+  "instituteName": "संस्थान का नाम",
+  "selectState": "राज्य चुनें",
+  "selectCity": "शहर चुनें",
+  "selectStateHint": "एक राज्य चुनें",
+  "selectCityHint": "एक शहर चुनें",
+  "selectCityDisabledHint": "पहले एक राज्य चुनें",
+  "registerButton": "रजिस्टर करें",
+  "userExistsError": "इस ईमेल वाला उपयोगकर्ता पहले से मौजूद है!",
+  "formSubmissionError": "फॉर्म सबमिट करने में विफल। कृपया बाद में पुनः प्रयास करें।",
+  "stateValidationError": "कृपया एक राज्य चुनें",
+  "cityValidationError": "कृपया एक शहर चुनें",
+  "firstNameValidationError": "कृपया केवल वर्णमाला वाले अक्षर दर्ज करें",
+  "lastNameValidationError": "कृपया केवल वर्णमाला वाले अक्षर दर्ज करें",
+  "instituteNameValidationError": "संस्थान का नाम दर्ज करें"
+}

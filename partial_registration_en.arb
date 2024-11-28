@@ -1,0 +1,20 @@
+{
+  "@@locale": "en",
+  "appTitle": "Create New Account",
+  "firstName": "First Name",
+  "lastName": "Last Name",
+  "instituteName": "Institute Name",
+  "selectState": "Select State",
+  "selectCity": "Select City",
+  "selectStateHint": "Select a state",
+  "selectCityHint": "Select a city",
+  "selectCityDisabledHint": "Select a state first",
+  "registerButton": "Register",
+  "userExistsError": "User with this email already exists!",
+  "formSubmissionError": "Failed to submit the form. Please try again later.",
+  "stateValidationError": "Please select a state",
+  "cityValidationError": "Please select a city",
+  "firstNameValidationError": "Please enter only alphabetical characters",
+  "lastNameValidationError": "Please enter only alphabetical characters",
+  "instituteNameValidationError": "Enter Institute Name"
+}
