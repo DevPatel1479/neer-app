@@ -1,0 +1,13 @@
+{
+  "@@locale": "hi",
+  "results_title": "परिणाम",
+  "triangle_value": "त्रिभुज मान: {value}",
+  "x_value": "एक्स मान: {value}",
+  "y_value": "वाई मान: {value}",
+  "angle_value": "कोण मान: {value}",
+  "corrected_angle": "सुधारित कोण: {value}",
+  "submit_button": "जमा करें",
+  "loading_indicator": "लोड हो रहा है...",
+  "data_saved_successfully": "डेटा सफलतापूर्वक सहेजा गया!",
+  "data_save_failed": "डेटा सहेजने में विफल: {error}"
+}

@@ -1,0 +1,13 @@
+{
+  "@@locale": "gu",
+  "results_title": "પરિણામો",
+  "triangle_value": "ત્રિકોણ માન: {value}",
+  "x_value": "એક્સ માન: {value}",
+  "y_value": "વાય માન: {value}",
+  "angle_value": "ખૂણો માન: {value}",
+  "corrected_angle": "સુધારેલ ખૂણો: {value}",
+  "submit_button": "સબમિટ કરો",
+  "loading_indicator": "લોડ થઈ રહ્યું છે...",
+  "data_saved_successfully": "ડેટા સફળતાપૂર્વક સંગ્રહિત થયો!",
+  "data_save_failed": "ડેટા સંગ્રહિત કરવામાં નિષ્ફળ: {error}"
+}

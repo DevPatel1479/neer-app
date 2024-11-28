@@ -1,0 +1,13 @@
+{
+  "@@locale": "en",
+  "results_title": "Results",
+  "triangle_value": "Triangle Value: {value}",
+  "x_value": "X Value: {value}",
+  "y_value": "Y Value: {value}",
+  "angle_value": "Angle Value: {value}",
+  "corrected_angle": "Corrected Angle: {value}",
+  "submit_button": "Submit",
+  "loading_indicator": "Loading...",
+  "data_saved_successfully": "Data saved successfully!",
+  "data_save_failed": "Failed to save data: {error}"
+}
