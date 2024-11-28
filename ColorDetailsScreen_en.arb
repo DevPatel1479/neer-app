@@ -1,27 +1,9 @@
 {
   "@@locale": "en",
-  "appBarTitle": "Color Details",
-  "@appBarTitle": {
-    "description": "Title for the AppBar in the Color Details screen"
-  },
-  "colorInfoLabel": "Color Information: {colorInfo}",
-  "@colorInfoLabel": {
-    "description": "Label for displaying the color information"
-  },
-  "xLabel": "X: {x}",
-  "@xLabel": {
-    "description": "Label for displaying the X value"
-  },
-  "yLabel": "Y: {y}",
-  "@yLabel": {
-    "description": "Label for displaying the Y value"
-  },
-  "correctedAngleLabel": "Corrected Angle: {correctedAngle}",
-  "@correctedAngleLabel": {
-    "description": "Label for displaying the corrected angle"
-  },
-  "angleLabel": "Angle: {angle}",
-  "@angleLabel": {
-    "description": "Label for displaying the angle"
-  }
+  "color_details_title": "Color Details",
+  "color_info_label": "Color Information: ",
+  "x_label": "X: ",
+  "y_label": "Y: ",
+  "corrected_angle_label": "Corrected Angle: ",
+  "angle_label": "Angle: "
 }
