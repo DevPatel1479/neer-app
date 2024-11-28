@@ -10,11 +10,15 @@
   "selectCityHint": "एक शहर चुनें",
   "selectCityDisabledHint": "पहले एक राज्य चुनें",
   "registerButton": "रजिस्टर करें",
+  "loadingIndicator": "लोड हो रहा है...",
   "userExistsError": "इस ईमेल वाला उपयोगकर्ता पहले से मौजूद है!",
   "formSubmissionError": "फॉर्म सबमिट करने में विफल। कृपया बाद में पुनः प्रयास करें।",
   "stateValidationError": "कृपया एक राज्य चुनें",
   "cityValidationError": "कृपया एक शहर चुनें",
   "firstNameValidationError": "कृपया केवल वर्णमाला वाले अक्षर दर्ज करें",
   "lastNameValidationError": "कृपया केवल वर्णमाला वाले अक्षर दर्ज करें",
-  "instituteNameValidationError": "संस्थान का नाम दर्ज करें"
+  "instituteNameValidationError": "संस्थान का नाम दर्ज करें",
+  "passwordValidationError": "पासवर्ड में एक विशेष वर्ण और एक संख्या होनी चाहिए",
+  "passwordShortError": "पासवर्ड कम से कम 8 अक्षरों का होना चाहिए",
+  "emailValidationError": "मान्य ईमेल पता दर्ज करें"
 }

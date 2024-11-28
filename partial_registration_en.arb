@@ -10,11 +10,15 @@
   "selectCityHint": "Select a city",
   "selectCityDisabledHint": "Select a state first",
   "registerButton": "Register",
+  "loadingIndicator": "Loading...",
   "userExistsError": "User with this email already exists!",
   "formSubmissionError": "Failed to submit the form. Please try again later.",
   "stateValidationError": "Please select a state",
   "cityValidationError": "Please select a city",
   "firstNameValidationError": "Please enter only alphabetical characters",
   "lastNameValidationError": "Please enter only alphabetical characters",
-  "instituteNameValidationError": "Enter Institute Name"
+  "instituteNameValidationError": "Enter Institute Name",
+  "passwordValidationError": "Password must contain a special character and a number",
+  "passwordShortError": "Password must be at least 8 characters long",
+  "emailValidationError": "Enter a valid email address"
 }

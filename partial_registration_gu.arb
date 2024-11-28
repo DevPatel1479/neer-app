@@ -10,11 +10,15 @@
   "selectCityHint": "એક શહેર પસંદ કરો",
   "selectCityDisabledHint": "પહેલા એક રાજ્ય પસંદ કરો",
   "registerButton": "નોંધણી કરો",
+  "loadingIndicator": "લોડ થઈ રહ્યું છે...",
   "userExistsError": "આ ઇમેઇલ સાથેનો વપરાશકર્તા પહેલેથી જ અસ્તિત્વમાં છે!",
   "formSubmissionError": "ફોર્મ સબમિટ કરવામાં નિષ્ફળ. કૃપા કરીને થોડીવાર પછી ફરી પ્રયાસ કરો.",
   "stateValidationError": "કૃપા કરીને રાજ્ય પસંદ કરો",
   "cityValidationError": "કૃપા કરીને એક શહેર પસંદ કરો",
   "firstNameValidationError": "કૃપા કરીને ફક્ત આલ્ફાબેટિકલ અક્ષરો દાખલ કરો",
   "lastNameValidationError": "કૃપા કરીને ફક્ત આલ્ફાબેટિકલ અક્ષરો દાખલ કરો",
-  "instituteNameValidationError": "સંસ્થાનું નામ દાખલ કરો"
+  "instituteNameValidationError": "સંસ્થાનું નામ દાખલ કરો",
+  "passwordValidationError": "પાસવર્ડમાં એક ખાસ અક્ષર અને એક નંબર હોવો જોઈએ",
+  "passwordShortError": "પાસવર્ડ ઓછામાં ઓછા 8 અક્ષરોનો હોવો જોઈએ",
+  "emailValidationError": "માન્ય ઇમેઇલ સરનામું દાખલ કરો"
 }
