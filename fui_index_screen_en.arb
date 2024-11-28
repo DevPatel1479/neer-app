@@ -1,9 +1,7 @@
 {
   "@@locale": "en",
-  "instructionsTitle": "Instructions to Use FUI Index",
-  "backButton": "Back",
-  "capturePhotoInstruction": "Capture the photo of the waterbody by clicking the proceed button and enter the index value.",
-  "calculateFUIInstruction": "Calculate the FUI index value from the image capture and verify.",
-  "proceedButtonText": "Click to Get Proceed",
-  "proceedButtonIcon": "Proceed"
+  "appBarTitle": "Instructions to Use FUI Index",
+  "instruction1": "Capture the photo of the waterbody by clicking the proceed button and enter the index value.",
+  "instruction2": "Calculate the FUI index value from the image capture and verify.",
+  "buttonText": "Click to Get Proceed"
 }
