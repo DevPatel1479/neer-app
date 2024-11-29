@@ -3,6 +3,7 @@ import 'package:neer/results_screen.dart';
 import 'package:image_picker/image_picker.dart';
 
 import 'dart:io';
+import 'generated/l10n.dart';
 
 class ColorSelectionPage extends StatefulWidget {
   final XFile? capturedImage;
@@ -71,11 +72,11 @@ class _ColorSelectionPageState extends State<ColorSelectionPage> {
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: Text("Invalid Selection"),
-            content: Text("Please select exactly 1 colors."),
+            title: Text(S.of(context).invalidSelectionTitle),
+            content: Text(S.of(context).invalidSelectionMessage),
             actions: [
               TextButton(
-                child: Text("OK"),
+                child: Text(S.of(context).ok),
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
@@ -103,7 +104,7 @@ class _ColorSelectionPageState extends State<ColorSelectionPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Select Water Colour'),
+        title: Text(S.of(context).selectWaterColour),
         backgroundColor: Colors.blue,
         leading: IconButton(
           // Back button
@@ -129,7 +130,7 @@ class _ColorSelectionPageState extends State<ColorSelectionPage> {
             children: [
               SizedBox(height: 20),
               Text(
-                "Image you captured",
+                S.of(context).imageCaptured,
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
               SizedBox(height: 10),
@@ -143,7 +144,7 @@ class _ColorSelectionPageState extends State<ColorSelectionPage> {
                   : Container(),
               SizedBox(height: 20),
               Text(
-                "Select Water Colour",
+                S.of(context).selectWaterColour,
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
               SizedBox(height: 10),
@@ -178,7 +179,7 @@ class _ColorSelectionPageState extends State<ColorSelectionPage> {
                               ScaffoldMessenger.of(context).clearSnackBars();
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
-                                  content: Text("You can only select 1 color."),
+                                  content: Text(S.of(context).snackBarMessage),
                                   duration: Duration(seconds: 1),
                                 ),
                               );
@@ -225,7 +226,7 @@ class _ColorSelectionPageState extends State<ColorSelectionPage> {
                 padding: const EdgeInsets.all(16.0),
                 child: ElevatedButton(
                   onPressed: submitColors,
-                  child: Text('SUBMIT'),
+                  child: Text(S.of(context).submit),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.green, // Background color
                     padding: EdgeInsets.symmetric(

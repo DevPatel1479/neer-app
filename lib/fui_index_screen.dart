@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:neer/camera_for_fui.dart';
+import 'generated/l10n.dart';
 
 class FUIIndexScreen extends StatelessWidget {
   @override
@@ -13,8 +14,8 @@ class FUIIndexScreen extends StatelessWidget {
             Navigator.pop(context); // Go back to the previous screen
           },
         ),
-        title: const Text(
-          "Instructions to Use FUI Index",
+        title: Text(
+          S.of(context).appBarTitle,
           style: TextStyle(
             color: Colors.black,
             fontSize: 18,
@@ -38,7 +39,7 @@ class FUIIndexScreen extends StatelessWidget {
 
                   // Main Content
                   Text(
-                    "Capture the photo of the waterbody by clicking the proceed button and enter the index value.",
+                    S.of(context).instruction1,
                     style: TextStyle(
                       fontSize: 20, // Adjusted font size
                       color: Colors.black,
@@ -48,7 +49,7 @@ class FUIIndexScreen extends StatelessWidget {
 
                   // Second Instruction Text
                   Text(
-                    "Calculate the FUI index value from the image capture and verify.",
+                    S.of(context).instruction2,
                     style: TextStyle(
                       fontSize: 20, // Adjusted font size
                       color: Colors.black,
@@ -85,8 +86,8 @@ class FUIIndexScreen extends StatelessWidget {
                     const Icon(Icons.arrow_forward,
                         color: Colors.black), // Button icon
                     const SizedBox(width: 8), // Spacing
-                    const Text(
-                      "Click to Get Proceed",
+                    Text(
+                      S.of(context).buttonText,
                       style: TextStyle(color: Colors.black),
                     ),
                   ],

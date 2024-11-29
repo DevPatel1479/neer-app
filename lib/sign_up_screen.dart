@@ -9,6 +9,7 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:crypto/crypto.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'generated/l10n.dart';
 
 class SignInPage extends StatefulWidget {
   @override
@@ -84,24 +85,26 @@ class _SignInPageState extends State<SignInPage> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text("Complete Your Profile"),
+          title: Text(S.of(context).completeProfile),
           content: SingleChildScrollView(
             child: Column(
               children: [
                 TextField(
                   controller: firstNameController,
-                  decoration: InputDecoration(hintText: "First Name"),
+                  decoration:
+                      InputDecoration(hintText: S.of(context).firstName),
                 ),
                 TextField(
                   controller: lastNameController,
-                  decoration: InputDecoration(hintText: "Last Name"),
+                  decoration: InputDecoration(hintText: S.of(context).lastName),
                 ),
                 TextField(
                   controller: instituteNameController,
-                  decoration: InputDecoration(hintText: "Institute Name"),
+                  decoration:
+                      InputDecoration(hintText: S.of(context).instituteName),
                 ),
                 DropdownButton<String>(
-                  hint: Text("Select State"),
+                  hint: Text(S.of(context).selectState),
                   value: selectedState,
                   items: states.map((state) {
                     return DropdownMenuItem<String>(
@@ -123,7 +126,7 @@ class _SignInPageState extends State<SignInPage> {
                   },
                 ),
                 DropdownButton<String>(
-                  hint: Text("Select City"),
+                  hint: Text(S.of(context).selectCity),
                   value: selectedCity,
                   items: cities.map((city) {
                     return DropdownMenuItem<String>(
@@ -189,14 +192,15 @@ class _SignInPageState extends State<SignInPage> {
                   }
                 } else {
                   // Show validation error
+                  ScaffoldMessenger.of(context).clearSnackBars();
                   ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text("Please fill all fields.")),
+                    SnackBar(content: Text(S.of(context).fillAllFields)),
                   );
                 }
               },
               child: isLoading
                   ? CircularProgressIndicator() // Show progress indicator when loading
-                  : Text("Submit"), // Show submit button
+                  : Text(S.of(context).submit), // Show submit button
             ),
           ],
         );
@@ -244,7 +248,7 @@ class _SignInPageState extends State<SignInPage> {
       if (!regExp.hasMatch(email)) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Please enter a valid email address.'),
+            content: Text(S.of(context).validEmail),
           ),
         );
         return; // Exit the function if email is invalid
@@ -298,7 +302,7 @@ class _SignInPageState extends State<SignInPage> {
 
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
-                content: Text('Incorrect password. Please try again.'),
+                content: Text(S.of(context).incorrectPassword),
               ),
             );
           }
@@ -310,7 +314,7 @@ class _SignInPageState extends State<SignInPage> {
 
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content: Text('Email not found. Please sign up.'),
+              content: Text(S.of(context).emailNotFound),
             ),
           );
         }
@@ -320,9 +324,10 @@ class _SignInPageState extends State<SignInPage> {
         });
         print('Failed to login: $error');
 
+        ScaffoldMessenger.of(context).clearSnackBars();
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Failed to login. Please try again later.'),
+            content: Text(S.of(context).loginFailed),
           ),
         );
       }
@@ -330,7 +335,7 @@ class _SignInPageState extends State<SignInPage> {
       // Show an error message if email or password is empty
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('Please enter your email and password.'),
+          content: Text(S.of(context).enterEmailPassword),
         ),
       );
     }
@@ -347,13 +352,13 @@ class _SignInPageState extends State<SignInPage> {
       barrierDismissible: false, // Prevent dismissing by tapping outside
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('Signing In'),
+          title: Text(S.of(context).signingIn),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               CircularProgressIndicator(),
               SizedBox(height: 20),
-              Text('Please wait while we sign you in...'),
+              Text(S.of(context).pleaseWait),
             ],
           ),
         );
@@ -402,8 +407,7 @@ class _SignInPageState extends State<SignInPage> {
 
         Navigator.of(context).pop(); // Dismiss the progress dialog
         Navigator.of(context).pushAndRemoveUntil(
-          MaterialPageRoute(
-              builder: (context) => HomePage()),
+          MaterialPageRoute(builder: (context) => HomePage()),
           (Route<dynamic> route) =>
               false, // This removes all the routes in the stack
         );
@@ -424,14 +428,14 @@ class _SignInPageState extends State<SignInPage> {
       showDialog(
         context: context,
         builder: (context) => AlertDialog(
-          title: Text("Sign-In Failed"),
-          content: Text("An error occurred during sign-in: $error"),
+          title: Text(S.of(context).signInFailed),
+          content: Text(S.of(context).signInError(error.toString())),
           actions: [
             TextButton(
               onPressed: () {
                 Navigator.of(context).pop(); // Close the error dialog
               },
-              child: Text("OK"),
+              child: Text(S.of(context).ok),
             ),
           ],
         ),
@@ -449,7 +453,7 @@ class _SignInPageState extends State<SignInPage> {
         MediaQuery.of(context).size; // Get screen size for responsiveness
     return Scaffold(
       appBar: AppBar(
-        title: Text('User Information'),
+        title: Text(S.of(context).userInfo),
         centerTitle: true,
         backgroundColor: Colors.cyan, // Set the app bar color
       ),
@@ -462,7 +466,7 @@ class _SignInPageState extends State<SignInPage> {
                   SizedBox(
                       height: 20), // Space between the indicator and the text
                   Text(
-                    'Logging in, please wait...', // Loading message
+                    S.of(context).logging_in_please_wait, // Loading message
                     style: TextStyle(fontSize: 16, color: Colors.black),
                   ),
                 ],
@@ -491,7 +495,7 @@ class _SignInPageState extends State<SignInPage> {
                           controller: _emailController,
                           keyboardType: TextInputType.emailAddress,
                           decoration: InputDecoration(
-                            hintText: 'Email',
+                            hintText: S.of(context).email,
                             filled: true,
                             fillColor: Colors.white,
                             border: OutlineInputBorder(
@@ -514,7 +518,7 @@ class _SignInPageState extends State<SignInPage> {
                           controller: _passwordController,
                           obscureText: true, // Hide password input
                           decoration: InputDecoration(
-                            hintText: 'Password',
+                            hintText: S.of(context).password,
                             filled: true,
                             fillColor: Colors.white,
                             border: OutlineInputBorder(
@@ -543,7 +547,7 @@ class _SignInPageState extends State<SignInPage> {
                                         Colors.black),
                                   )
                                 : Text(
-                                    'LOGIN',
+                                    S.of(context).login,
                                     style: TextStyle(color: Colors.black),
                                   ),
                             style: ElevatedButton.styleFrom(
@@ -566,7 +570,7 @@ class _SignInPageState extends State<SignInPage> {
                                   builder: (context) => RegistrationScreen()));
                             },
                             child: Text(
-                              'CREATE NEW ACCOUNT',
+                              S.of(context).create_new_account,
                               style: TextStyle(color: Colors.black),
                             ),
                             style: ElevatedButton.styleFrom(
@@ -580,7 +584,7 @@ class _SignInPageState extends State<SignInPage> {
                         ),
                         SizedBox(height: 30),
                         Text(
-                          'OR',
+                          S.of(context).or,
                           style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
@@ -603,7 +607,7 @@ class _SignInPageState extends State<SignInPage> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  'Continue with Google',
+                                  S.of(context).continue_with_google,
                                   style: TextStyle(
                                       fontSize: 16, color: Colors.black),
                                 ),

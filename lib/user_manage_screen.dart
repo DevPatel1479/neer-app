@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:neer/observation_data_screen.dart';
 import 'package:neer/selected_entry_screen.dart';
-
+import 'generated/l10n.dart';
 class UserManage extends StatefulWidget {
   @override
   _UserManageState createState() => _UserManageState();
@@ -23,7 +23,7 @@ class _UserManageState extends State<UserManage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: Text("Select Parameters"),
+          title: Text(S.of(context).select_parameters),
           backgroundColor: Color(0xFF4facfc),
           actions: [
             IconButton(
@@ -37,7 +37,7 @@ class _UserManageState extends State<UserManage> {
         child: Column(
           children: [
             Text(
-              "Check the boxes/click on icon to select parameters of interest",
+              S.of(context).check_boxes_instruction,
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 20, color: Colors.black),
             ),
@@ -75,7 +75,7 @@ class _UserManageState extends State<UserManage> {
                     });
                   },
                   child: Text(
-                    "RESET",
+                    S.of(context).reset_button,
                     style: TextStyle(color: Colors.white),
                   ),
                   style: TextButton.styleFrom(
@@ -90,7 +90,7 @@ class _UserManageState extends State<UserManage> {
                     if (selectedLabels.isEmpty) {
                       ScaffoldMessenger.of(context).clearSnackBars();
                       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                        content: Text("Select at least one User Entry."),
+                        content: Text(S.of(context).select_at_least_one),
                         duration: Duration(seconds: 1),
                       ));
                     } else {
@@ -100,7 +100,7 @@ class _UserManageState extends State<UserManage> {
                               selectedParameters: selectedLabels)));
                     }
                   },
-                  child: Text("SUBMIT", style: TextStyle(color: Colors.white)),
+                  child: Text(S.of(context).submit_button, style: TextStyle(color: Colors.white)),
                   style: TextButton.styleFrom(
                     backgroundColor: Colors.blue,
                     padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),

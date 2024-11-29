@@ -7,6 +7,7 @@ import 'dart:async';
 import 'dart:math';
 import 'dart:io'; // Add this import for File
 import 'package:image/image.dart' as img; // Import image package
+import 'generated/l10n.dart';
 
 class CameraForFui extends StatefulWidget {
   @override
@@ -251,7 +252,7 @@ class _CameraForFuiState extends State<CameraForFui> {
                     foregroundColor: Color(0xFF020202),
                     textStyle: TextStyle(fontSize: 15),
                   ),
-                  child: Text('Water'),
+                  child: Text(S.of(context).water),
                 ),
               ),
             ],
@@ -285,7 +286,7 @@ class _CameraForFuiState extends State<CameraForFui> {
                     foregroundColor: Color(0xFF020202),
                     textStyle: TextStyle(fontSize: 15),
                   ),
-                  child: Text('New Measurement'),
+                  child: Text(S.of(context).newMeasurementButtonText),
                 ),
               ),
             ],
@@ -312,7 +313,7 @@ class _CameraForFuiState extends State<CameraForFui> {
                     child: Text(
                       _pitchValue != null
                           ? _pitchValue!.toStringAsFixed(2)
-                          : '0.00', // Display pitch value
+                          : S.of(context).defaultPitchValue, // Display pitch value
                       style: TextStyle(fontSize: 35, color: Color(0xFF040404)),
                     ),
                   ),

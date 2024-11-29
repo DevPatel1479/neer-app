@@ -5,6 +5,7 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'ecosystem_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'generated/l10n.dart';
 
 class LocationScreen extends StatefulWidget {
   @override
@@ -55,7 +56,7 @@ class _LocationPageState extends State<LocationScreen> {
         children: [
           CircularProgressIndicator(), // Add progress indicator
           SizedBox(width: 20),
-          Text('Fetching location, please wait...'),
+          Text(S.of(context).fetching_location_please_wait),
         ],
       ),
       duration: Duration(days: 1), // Duration should be long until dismissed
@@ -106,7 +107,7 @@ class _LocationPageState extends State<LocationScreen> {
       // Show a message if location is not fetched
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('Please turn on location services.'),
+          content: Text(S.of(context).please_turn_on_location_services),
           duration: Duration(seconds: 2),
         ),
       );
@@ -125,7 +126,7 @@ class _LocationPageState extends State<LocationScreen> {
         } else {
           ScaffoldMessenger.of(context).clearSnackBars();
           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-            content: Text("Please enter valid coordinates !"),
+            content: Text(S.of(context).please_enter_valid_coordinates),
             duration: Duration(seconds: 1),
           ));
 
@@ -179,7 +180,7 @@ class _LocationPageState extends State<LocationScreen> {
       },
       child: Scaffold(
         appBar: AppBar(
-          title: Text("Location"),
+          title: Text(S.of(context).location),
           backgroundColor: Colors.blue,
         ),
         body: Column(
@@ -193,7 +194,7 @@ class _LocationPageState extends State<LocationScreen> {
                   Row(
                     children: [
                       Text(
-                        'Lat: ',
+                        S.of(context).lat,
                         style: TextStyle(fontSize: 20, color: Colors.white),
                       ),
                       SizedBox(width: 10),
@@ -203,7 +204,7 @@ class _LocationPageState extends State<LocationScreen> {
                           decoration: InputDecoration(
                             filled: true,
                             fillColor: Colors.white,
-                            hintText: 'Latitude',
+                            hintText: S.of(context).latitude,
                           ),
                           keyboardType: TextInputType.number,
                           onChanged: (value) => _updateLocationMarker(),
@@ -215,7 +216,7 @@ class _LocationPageState extends State<LocationScreen> {
                   Row(
                     children: [
                       Text(
-                        'Lon: ',
+                        S.of(context).lon,
                         style: TextStyle(fontSize: 20, color: Colors.white),
                       ),
                       SizedBox(width: 10),
@@ -225,7 +226,7 @@ class _LocationPageState extends State<LocationScreen> {
                           decoration: InputDecoration(
                             filled: true,
                             fillColor: Colors.white,
-                            hintText: 'Longitude',
+                            hintText: S.of(context).longitude,
                           ),
                           keyboardType: TextInputType.number,
                           onChanged: (value) => _updateLocationMarker(),
@@ -239,7 +240,7 @@ class _LocationPageState extends State<LocationScreen> {
                     child: ElevatedButton(
                       onPressed: _goToNextScreen, // Call the new function
                       child: Text(
-                        'Goto Next',
+                        S.of(context).goto_next,
                         style: TextStyle(color: Colors.black),
                       ),
                       style: ElevatedButton.styleFrom(

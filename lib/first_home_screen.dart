@@ -4,6 +4,7 @@ import 'package:neer/home_screen.dart';
 import 'package:neer/instruction_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:neer/sign_up_screen.dart';
+import 'generated/l10n.dart';
 
 class FirstHomeScreen extends StatelessWidget {
   @override
@@ -63,7 +64,7 @@ class FirstHomeScreen extends StatelessWidget {
                   ),
                   // Title text
                   Text(
-                    'NEER',
+                    S.of(context).neer,
                     style: TextStyle(
                       fontSize: screenWidth * 0.09,
                       fontWeight: FontWeight.bold,
@@ -107,7 +108,7 @@ class FirstHomeScreen extends StatelessWidget {
                         children: [
                           Icon(Icons.home, size: 30), // Adjust size as needed
                           SizedBox(width: 10),
-                          Text('WELCOME'),
+                          Text(S.of(context).welcome),
                         ],
                       ),
                     ),
@@ -143,7 +144,7 @@ class FirstHomeScreen extends StatelessWidget {
                           Icon(Icons.help_outline,
                               size: 30), // Adjust size as needed
                           SizedBox(width: 10),
-                          Text('Help'),
+                          Text(S.of(context).help),
                         ],
                       ),
                     ),
@@ -184,7 +185,7 @@ class FirstHomeScreen extends StatelessWidget {
                     padding:
                         EdgeInsets.symmetric(horizontal: screenWidth * 0.1),
                     child: Text(
-                      'Developed as a part of project \'NEER\' funded by DST under \'WTI 2019\'',
+                      S.of(context).developed_part_of_project_neer,
                       style: TextStyle(
                         fontSize: screenWidth * 0.045,
                         fontWeight: FontWeight.bold,

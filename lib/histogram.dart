@@ -2,6 +2,7 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:image/image.dart' as img;
+import 'generated/l10n.dart';
 
 class HistogramApp extends StatefulWidget {
   final List<XFile?> capturedImages; // Images already captured
@@ -41,12 +42,12 @@ class _HistogramAppState extends State<HistogramApp> {
       length: 3,
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Image Histogram'),
+          title: Text(S.of(context).image_histogram),
           bottom: TabBar(
             tabs: [
-              Tab(text: 'Gray Card'),
-              Tab(text: 'Water'),
-              Tab(text: 'Sky'),
+              Tab(text: S.of(context).gray_card),
+              Tab(text: S.of(context).water),
+              Tab(text: S.of(context).sky),
             ],
           ),
         ),
@@ -64,7 +65,8 @@ class _HistogramAppState extends State<HistogramApp> {
   // Build a tab for each category (Gray Card, Water, Sky)
   Widget _buildHistogramTab(int index, String title) {
     if (widget.capturedImages[index] == null) {
-      return Center(child: Text('No image captured for $title'));
+      return Center(
+          child: Text(S.of(context).no_image_captured(title.toString())));
     }
 
     return Column(
@@ -72,15 +74,18 @@ class _HistogramAppState extends State<HistogramApp> {
         Expanded(
           child: Column(
             children: [
-              Text('$title Histogram (Red)', style: TextStyle(fontSize: 20)),
+              Text('$title ${S.of(context).red_histogram}',
+                  style: TextStyle(fontSize: 20)),
               _buildHistogram(redHistograms[index], maxFrequencies[index],
                   1), // Red channel
               SizedBox(height: 20),
-              Text('Green', style: TextStyle(fontSize: 20)),
+              Text(S.of(context).green_histogram,
+                  style: TextStyle(fontSize: 20)),
               _buildHistogram(greenHistograms[index], maxFrequencies[index],
                   2), // Green channel
               SizedBox(height: 20),
-              Text('Blue', style: TextStyle(fontSize: 20)),
+              Text(S.of(context).blue_histogram,
+                  style: TextStyle(fontSize: 20)),
               _buildHistogram(blueHistograms[index], maxFrequencies[index],
                   3), // Blue channel
             ],

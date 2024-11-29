@@ -17,6 +17,7 @@ import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter/services.dart' as services;
 import 'package:native_exif/native_exif.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'generated/l10n.dart';
 
 class TurbidityCalculationScreen extends StatelessWidget {
   @override
@@ -32,7 +33,7 @@ class TurbidityCalculationScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Instructions for User"),
+        title: Text(S.of(context).instructions_for_user),
         backgroundColor: Color(0xFF4facfc),
       ),
       backgroundColor: Colors.white,
@@ -43,7 +44,7 @@ class TurbidityCalculationScreen extends StatelessWidget {
           Container(
             padding: const EdgeInsets.all(8.0),
             child: Text(
-              "Guidelines to Calculate Turbidity",
+              S.of(context).guidelines_to_calculate_turbidity,
               style: TextStyle(
                 color: Colors.black,
                 fontSize: 25,
@@ -61,37 +62,37 @@ class TurbidityCalculationScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "1. Capture the image of Gray Card, Water, and Sky with instructed angles.",
+                    S.of(context).capture_image_instruction_1,
                     style: TextStyle(color: Colors.black, fontSize: 20),
                   ),
                   SizedBox(height: spacing),
                   Text(
-                    "2. Analyze the calculated Results.",
+                    S.of(context).analyze_results_instruction_2,
                     style: TextStyle(color: Colors.black, fontSize: 20),
                   ),
                   SizedBox(height: spacing),
                   Text(
-                    "3. Visualize the histogram images of Gray Card, Water, and Sky images.",
+                    S.of(context).visualize_histogram_instruction_3,
                     style: TextStyle(color: Colors.black, fontSize: 20),
                   ),
                   SizedBox(height: spacing),
                   Text(
-                    "4. Visualize the Results with Proper Location, Date, and Time.",
+                    S.of(context).visualize_results_instruction_4,
                     style: TextStyle(color: Colors.black, fontSize: 20),
                   ),
                   SizedBox(height: spacing),
                   Text(
-                    "5. For Gray Card the angle must be between 35 and 45 degrees to take picture.",
+                    S.of(context).gray_card_angle_instruction_5,
                     style: TextStyle(color: Colors.black, fontSize: 20),
                   ),
                   SizedBox(height: spacing),
                   Text(
-                    "6. For Water the angle must be between 35 and 45 degrees to take picture.",
+                    S.of(context).water_angle_instruction_6,
                     style: TextStyle(color: Colors.black, fontSize: 20),
                   ),
                   SizedBox(height: spacing),
                   Text(
-                    "7. For Sky the angle must be between 125 and 135 degrees to take picture.",
+                    S.of(context).sky_angle_instruction_7,
                     style: TextStyle(color: Colors.black, fontSize: 20),
                   ),
                 ],
@@ -113,7 +114,7 @@ class TurbidityCalculationScreen extends StatelessWidget {
             _showImageConfirmationDialog(context);
           },
           child: Text(
-            "Proceed",
+            S.of(context).proceed,
             style: TextStyle(color: Colors.white, fontSize: 20),
           ),
         ),
@@ -136,7 +137,7 @@ class TurbidityCalculationScreen extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(
-                "Use Default Gray Card Image?",
+                S.of(context).use_default_gray_card_image,
                 style: TextStyle(
                   fontSize: 22,
                   fontWeight: FontWeight.bold,
@@ -178,7 +179,7 @@ class TurbidityCalculationScreen extends StatelessWidget {
                       );
                     },
                     child: Text(
-                      "Yes",
+                      S.of(context).yes,
                       style: TextStyle(color: Colors.white),
                     ),
                   ),
@@ -203,7 +204,7 @@ class TurbidityCalculationScreen extends StatelessWidget {
                       );
                     },
                     child: Text(
-                      "No",
+                      S.of(context).no,
                       style: TextStyle(color: Colors.white),
                     ),
                   ),
@@ -901,7 +902,7 @@ class _CaptureImageScreenState extends State<CaptureImageScreen> {
                 children: [
                   CircularProgressIndicator(),
                   SizedBox(height: 16.0),
-                  Text("Analyzing"),
+                  Text(S.of(context).analyzing),
                 ],
               ),
             )
@@ -932,7 +933,7 @@ class _CaptureImageScreenState extends State<CaptureImageScreen> {
                             minimumSize: Size(double.infinity,
                                 35), // Make button height consistent
                           ),
-                          child: Text("Preview Images"),
+                          child: Text(S.of(context).preview_images),
                         ),
                       ),
                       // Image below the preview button on the left side
@@ -1012,14 +1013,14 @@ class _CaptureImageScreenState extends State<CaptureImageScreen> {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: Text("Capture"),
+          title: Text(S.of(context).capture),
           content: Text(message),
           actions: [
             TextButton(
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: Text("OK"),
+              child: Text(S.of(context).ok),
             ),
           ],
         );
@@ -1081,7 +1082,7 @@ class PreviewScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Captured Images Preview"),
+        title: Text(S.of(context).captured_images_preview),
         backgroundColor: Color(0xFF4facfc),
       ),
       body: ListView.builder(
@@ -1113,7 +1114,7 @@ class PreviewScreen extends StatelessWidget {
               : Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
-                    "No image captured for $label",
+                    S.of(context).no_image_captured(label.toString()),
                     style: TextStyle(fontSize: 18, color: Colors.red),
                   ),
                 );
