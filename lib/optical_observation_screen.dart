@@ -4,6 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart'; // Import Shared Pr
 // import 'package:geolocator/geolocator.dart'; // Import Geolocator for location services
 import 'package:intl/intl.dart'; // Import intl for formatting date and time
 import 'package:neer/local_database/database_helper.dart';
+import 'generated/l10n.dart';
 
 class OpticalObservationsScreen extends StatefulWidget {
   @override
@@ -68,25 +69,26 @@ class _OpticalObservationsScreenState extends State<OpticalObservationsScreen> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('Enter Observation Title'),
+          title: Text(S.of(context).enter_observation_title),
           content: TextField(
             onChanged: (value) {
               title = value;
             },
-            decoration: InputDecoration(hintText: "Observation Title"),
+            decoration:
+                InputDecoration(hintText: S.of(context).observation_title),
           ),
           actions: <Widget>[
             TextButton(
               onPressed: () {
                 Navigator.of(context).pop(title); // Return the entered title
               },
-              child: Text('Save'),
+              child: Text(S.of(context).save),
             ),
             TextButton(
               onPressed: () {
                 Navigator.of(context).pop(); // Close dialog without saving
               },
-              child: Text('Cancel'),
+              child: Text(S.of(context).cancel),
             ),
           ],
         );
@@ -99,8 +101,9 @@ class _OpticalObservationsScreenState extends State<OpticalObservationsScreen> {
   Future<void> _uploadData() async {
     // Check if Secchi Depth is empty
     if (_depthController.text.isEmpty) {
+      ScaffoldMessenger.of(context).clearSnackBars();
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Please enter a valid Secchi Depth')),
+        SnackBar(content: Text(S.of(context).please_enter_valid_secchi_depth)),
       );
       return;
     }
@@ -111,10 +114,11 @@ class _OpticalObservationsScreenState extends State<OpticalObservationsScreen> {
 
     // Check if the depthValue is null (indicating invalid input)
     if (depthValue == null || depthValue < 0) {
+      ScaffoldMessenger.of(context).clearSnackBars();
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-            content:
-                Text('Please enter a valid numeric value for Secchi Depth')),
+            content: Text(
+                S.of(context).please_enter_valid_numeric_value_secchi_depth)),
       );
       return;
     }
@@ -122,17 +126,15 @@ class _OpticalObservationsScreenState extends State<OpticalObservationsScreen> {
     String? observationTitle = await _showTitleInputDialog();
     if (observationTitle == null) {
       ScaffoldMessenger.of(context).clearSnackBars();
-      ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text("Please enter title for observation")));
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text(S.of(context).please_enter_title_for_observation)));
       return;
     }
 
     // Check for location availability
     if (_latitude == null || _longitude == null) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-            content: Text(
-                'Unable to fetch location. Please ensure location services are enabled.')),
+        SnackBar(content: Text(S.of(context).unable_to_fetch_location)),
       );
       return;
     }
@@ -172,7 +174,7 @@ class _OpticalObservationsScreenState extends State<OpticalObservationsScreen> {
     await ref.push().set(data).then((_) {
       // Show success message
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text('Data uploaded successfully!'),
+        content: Text(S.of(context).data_uploaded_successfully),
       ));
 
       // Pop two screens after successful save
@@ -194,7 +196,7 @@ class _OpticalObservationsScreenState extends State<OpticalObservationsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Secchi Depth Observation"),
+        title: Text(S.of(context).secchi_depth_observation),
         backgroundColor: const Color(0xFF4FACFC),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
@@ -216,7 +218,7 @@ class _OpticalObservationsScreenState extends State<OpticalObservationsScreen> {
                 width: double.infinity,
                 height: 500,
                 child: Image.asset(
-                  'assets/app.png', // Replace with your actual image asset
+                  'assets/app.png', // Secchi disk image
                   fit: BoxFit.cover,
                 ),
               ),
@@ -229,7 +231,7 @@ class _OpticalObservationsScreenState extends State<OpticalObservationsScreen> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
-                      "Secchi Depth  ",
+                      S.of(context).secchi_depth,
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 20,
@@ -240,7 +242,7 @@ class _OpticalObservationsScreenState extends State<OpticalObservationsScreen> {
                       child: TextField(
                         controller: _depthController, // Assign the controller
                         decoration: InputDecoration(
-                          hintText: "Enter the depth in (m)",
+                          hintText: S.of(context).enter_depth_in_m,
                           filled: true,
                           fillColor: const Color(0xFFD0E8F2),
                           border: OutlineInputBorder(),
@@ -266,8 +268,8 @@ class _OpticalObservationsScreenState extends State<OpticalObservationsScreen> {
                             valueColor:
                                 AlwaysStoppedAnimation<Color>(Colors.white),
                           )
-                        : const Text(
-                            "Submit",
+                        : Text(
+                            S.of(context).submit,
                             style: TextStyle(fontSize: 25, color: Colors.white),
                           ),
                     style: ElevatedButton.styleFrom(

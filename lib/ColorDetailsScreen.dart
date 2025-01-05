@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'generated/l10n.dart';
 
 class ColorDetailsScreen extends StatelessWidget {
   final String colorInfo;
@@ -19,7 +20,7 @@ class ColorDetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Color Details'),
+        title: Text(S.of(context).color_info_label(colorInfo.toString())),
       ),
       body: Padding(
         padding: EdgeInsets.all(16.0),
@@ -27,7 +28,7 @@ class ColorDetailsScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Color Information: $colorInfo',
+              S.of(context).color_info_label(colorInfo.toString()),
               style: TextStyle(fontSize: 20),
             ),
             SizedBox(height: 20),

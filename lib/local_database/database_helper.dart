@@ -37,6 +37,7 @@ class DatabaseHelper {
             time TEXT,
             turbidity TEXT,
             spm TEXT,
+            chlorophyll TEXT,
             latitude REAL,
             longitude REAL,
             ref_red REAL,

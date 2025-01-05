@@ -6,6 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:firebase_database/firebase_database.dart';
 // import 'package:geolocator/geolocator.dart';
 import 'package:neer/local_database/database_helper.dart';
+import 'generated/l10n.dart';
 
 class SelectedEntry extends StatefulWidget {
   final List<String> selectedParameters;
@@ -49,42 +50,13 @@ class _SelectedEntryState extends State<SelectedEntry> {
       _latitude = prefs.getDouble('latitude');
       _longitude = prefs.getDouble('longitude');
     });
-    // try {
-    //   // Check for location permission
-    //   LocationPermission permission = await Geolocator.checkPermission();
-    //   if (permission == LocationPermission.denied) {
-    //     permission = await Geolocator.requestPermission();
-    //   }
-
-    //   if (permission == LocationPermission.deniedForever) {
-    //     // Location permissions are permanently denied, handle accordingly
-    //     ScaffoldMessenger.of(context).showSnackBar(
-    //       SnackBar(
-    //           content: Text('Location permissions are permanently denied.')),
-    //     );
-    //     return;
-    //   }
-
-    //   // Get the current position
-    //   Position position = await Geolocator.getCurrentPosition(
-    //       desiredAccuracy: LocationAccuracy.high);
-    //   setState(() {
-    //     _latitude = position.latitude;
-    //     _longitude = position.longitude;
-    //   });
-    // } catch (e) {
-    //   print('Error fetching location: $e');
-    //   ScaffoldMessenger.of(context).showSnackBar(
-    //     SnackBar(content: Text('Error fetching location: $e')),
-    //   );
-    // }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('In-Situ Observation'),
+        title: Text(S.of(context).in_situ_observation),
         backgroundColor: Color(0xFF4FACFC),
       ),
       body: SingleChildScrollView(
@@ -110,7 +82,7 @@ class _SelectedEntryState extends State<SelectedEntry> {
                     children: [
                       CircularProgressIndicator(),
                       SizedBox(height: 20),
-                      Text('Saving data, please wait...'), // Loading text
+                      Text(S.of(context).saving_data_please_wait), // Loading text
                     ],
                   ),
                 ),
@@ -147,10 +119,10 @@ class _SelectedEntryState extends State<SelectedEntry> {
         label = 'pH Value';
         hint = 'Enter pH value (0.0-14.0)';
         break;
-      case "Water Depth":
-        label = 'Water Depth (m)';
-        hint = 'Enter depth value (m)';
-        break;
+      // case "Water Depth":
+      //   label = 'Water Depth (m)';
+      //   hint = 'Enter depth value (m)';
+      //   break;
       case "Dissolved O2":
         label = 'Dissolved O2 (ml/L)';
         hint = 'Enter O2 value (ml/L)';
@@ -197,7 +169,7 @@ class _SelectedEntryState extends State<SelectedEntry> {
             await _saveDataToFirebase();
           }
         },
-        child: Text('Click To Save', style: TextStyle(fontSize: 20)),
+        child: Text(S.of(context).click_to_save, style: TextStyle(fontSize: 20)),
       ),
     );
   }
@@ -234,12 +206,12 @@ class _SelectedEntryState extends State<SelectedEntry> {
               isValid = false;
             }
             break;
-          case "Water Depth":
-            if (double.tryParse(value) == null) {
-              _errors[parameter] = 'Invalid depth value';
-              isValid = false;
-            }
-            break;
+          // case "Water Depth":
+          //   if (double.tryParse(value) == null) {
+          //     _errors[parameter] = 'Invalid depth value';
+          //     isValid = false;
+          //   }
+          //   break;
           case "Dissolved O2":
             if (double.tryParse(value) == null) {
               _errors[parameter] = 'Invalid O2 value';
@@ -260,25 +232,25 @@ class _SelectedEntryState extends State<SelectedEntry> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('Enter Observation Title'),
+          title: Text(S.of(context).enter_observation_title),
           content: TextField(
             onChanged: (value) {
               title = value;
             },
-            decoration: InputDecoration(hintText: "Observation Title"),
+            decoration: InputDecoration(hintText: S.of(context).observation_title),
           ),
           actions: <Widget>[
             TextButton(
               onPressed: () {
                 Navigator.of(context).pop(title); // Return the entered title
               },
-              child: Text('Save'),
+              child: Text(S.of(context).save),
             ),
             TextButton(
               onPressed: () {
                 Navigator.of(context).pop(); // Close dialog without saving
               },
-              child: Text('Cancel'),
+              child: Text(S.of(context).cancel),
             ),
           ],
         );
@@ -292,7 +264,7 @@ class _SelectedEntryState extends State<SelectedEntry> {
     if (observationTitle == null) {
       ScaffoldMessenger.of(context).clearSnackBars();
       ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text("Please enter title for observation")));
+          SnackBar(content: Text(S.of(context).please_enter_title_for_observation)));
       return;
     }
     setState(() {
@@ -338,7 +310,7 @@ class _SelectedEntryState extends State<SelectedEntry> {
         'ref_blue': 0,
         'temperature': dataToSave['Temperature'],
         'ph_value': dataToSave['pH'],
-        'water_depth': dataToSave['Water Depth'],
+        // 'water_depth': dataToSave['Water Depth'],
         'dissolved_O2': dataToSave['Dissolved O2'],
         'secchi_depth': 0,
       };
@@ -346,14 +318,14 @@ class _SelectedEntryState extends State<SelectedEntry> {
       await DatabaseHelper.instance.insertObservation(observation);
 
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Data saved successfully!')),
+        SnackBar(content: Text(S.of(context).data_saved_successfully)),
       );
       setState(() {
         _isLoading = false;
       });
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('User email not found!')),
+        SnackBar(content: Text(S.of(context).user_email_not_found)),
       );
       setState(() {
         _isLoading = false;
@@ -365,7 +337,7 @@ class _SelectedEntryState extends State<SelectedEntry> {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 20.0),
       child: Text(
-        'Click the above button to save manually entered values.',
+        S.of(context).click_to_save_manually_entered_values,
         style: TextStyle(fontSize: 20, color: Colors.black54),
         textAlign: TextAlign.center,
       ),

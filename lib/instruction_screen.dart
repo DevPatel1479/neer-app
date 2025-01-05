@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:neer/first_home_screen.dart';
+import 'generated/l10n.dart';
 
 class InstructionScreen extends StatefulWidget {
   @override
@@ -22,7 +23,6 @@ class _InstructionScreenState extends State<InstructionScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       backgroundColor: Colors.transparent,
       body: SingleChildScrollView(
         child: Column(
@@ -57,7 +57,7 @@ class _InstructionScreenState extends State<InstructionScreen> {
                     color: Color(0xFF3284CC),
                     padding: EdgeInsets.all(10),
                     child: Text(
-                      'Crowd Sourcing to Find and Report Water Quality Parameters',
+                      S.of(context).crowd_sourcing,
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         color: Colors.white,
@@ -67,60 +67,54 @@ class _InstructionScreenState extends State<InstructionScreen> {
                     ),
                   ),
                   SizedBox(height: 10),
-                  Container(
-                    width: 380,
-                    height: 60,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      border: Border.all(color: Color(0xFF3284CC)),
-                      borderRadius: BorderRadius.circular(4),
-                    ),
-                    child: Center(
-                      child: Text(
-                        'ENGLISH',
-                        style: TextStyle(
-                          color: Color(0xFF3284CC),
-                          fontSize: 25,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 10),
-                  _buildSectionTitle('About NEER?'),
-                  if (_expandedSection == 'About NEER?')
+                  _buildSectionTitle(S.of(context).aboutNeer),
+                  if (_expandedSection == 'About NEER?' ||
+                      _expandedSection == "NEER के बारे में?" ||
+                      _expandedSection == "NEER વિશે?")
                     _buildSectionContent(
-                      'Project NEER was conceived by Department of Computer Science, Gujarat University under intellectual guidance from Space Application Centre (SAC), Indian Space Research Organisation (ISRO). The project is sponsored by Department of Science and Technology (DST), India for the year 2021-2024. The main objective of the project is to exploit the power of Citizen Science tools in monitoring water bodies and managing water resources division support system.',
+                      S.of(context).projectNeerDescription,
                     ),
                   SizedBox(height: 15),
-                  _buildSectionTitle('What are the parameters used?'),
-                  if (_expandedSection == 'What are the parameters used?')
+                  _buildSectionTitle(S.of(context).parametersUsed),
+                  if (_expandedSection == 'What are the parameters used?' ||
+                      _expandedSection ==
+                          'कौन-कौन से पैरामीटर उपयोग किए गए हैं?' ||
+                      _expandedSection == "કયા પરિમાણોનો ઉપયોગ થાય છે?")
                     _buildSectionContent(
-                      'Turbidity, FUI index, chlorophyll, temperature, pH, DO, Conductivity, Secchi depth.',
+                      S.of(context).waterParameters,
                     ),
                   SizedBox(height: 15),
-                  _buildSectionTitle('What does this App do?'),
-                  if (_expandedSection == 'What does this App do?')
+                  _buildSectionTitle(S.of(context).app_description),
+                  if (_expandedSection == 'What does this App do?' ||
+                      _expandedSection == 'यह ऐप क्या करता है?' ||
+                      _expandedSection == 'આ એપ્લિકેશન શું કરે છે?')
                     _buildSectionContent(
-                      'This NEER Application will provide the important information about the water quality parameters of inland water bodies. A registered volunteer now a citizen scientist captures photo of water body and measures chemical properties through instrument. The measured data is sent to a remote server tagged with location of volunteer, date and time of observation. The collected data repository on a hosted server is available for further analysis.',
+                      S.of(context).neer_app_description,
                     ),
                   SizedBox(height: 15),
-                  _buildSectionTitle('Who are we?'),
-                  if (_expandedSection == 'Who are we?')
+                  _buildSectionTitle(S.of(context).who_are_we),
+                  if (_expandedSection == 'Who are we?' ||
+                      _expandedSection == "हम कौन हैं?" ||
+                      _expandedSection == "અમે કોણ છીએ?")
                     _buildSectionContent(
-                      'We are a collaborative workgroup of scientists (SAC), professors (Gujarat University), research scholars and citizen scientists working collectively on the major water issues.',
+                      S.of(context).collaborative_workgroup,
                     ),
                   SizedBox(height: 15),
-                  _buildSectionTitle('How to Proceed?'),
-                  if (_expandedSection == 'How to Proceed?')
+                  _buildSectionTitle(S.of(context).how_to_proceed),
+                  if (_expandedSection == 'How to Proceed?' ||
+                      _expandedSection == 'आगे कैसे बढ़ें?' ||
+                      _expandedSection == 'કેવી રીતે આગળ વધવું?')
                     _buildSectionContent(
-                      'Click the “Let’s get started” button to move on to the user information page. Continue to set the location, Select the water body and enter the information manually. Images of water, Gray card and sky are taken for Turbidity, chlorophyll and FUI index estimation. Be sure to touch the save button on the bottom of each page. Individual page instructs that how to proceed to next. The final tab helps to submit the user data.',
+                      S.of(context).click_get_started,
                     ),
                   SizedBox(height: 15),
-                  _buildSectionTitle('How will we use this data?'),
-                  if (_expandedSection == 'How will we use this data?')
+                  _buildSectionTitle(S.of(context).how_will_we_use_this_data),
+                  if (_expandedSection == 'How will we use this data?' ||
+                      _expandedSection == 'हम इस डेटा का उपयोग कैसे करेंगे?' ||
+                      _expandedSection ==
+                          'અમે આ ડેટાનું ઉપયોગ કેવી રીતે કરીશું?')
                     _buildSectionContent(
-                      'The collected data will be used to analyze the water quality and improve the monitoring processes. This data helps in understanding water quality parameters and managing water resources effectively.',
+                      S.of(context).collected_data_usage,
                     ),
                   SizedBox(height: 20),
                   ElevatedButton(
@@ -138,7 +132,7 @@ class _InstructionScreenState extends State<InstructionScreen> {
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => FirstHomeScreen()));
                     },
-                    child: Text('LET\'S GET STARTED!'),
+                    child: Text(S.of(context).lets_get_started),
                   ),
                   SizedBox(height: 20),
                 ],

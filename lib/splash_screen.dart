@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:neer/instruction_screen.dart';
 import 'dart:async';
 
-import 'package:neer/instruction_screen.dart';
+// import 'package:neer/instruction_screen.dart';
+import 'package:neer/language_selection_screen.dart';
+
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -10,10 +14,12 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   double _opacity = 0.0; // Initial opacity is 0 (invisible)
+  String? hasUserSelectedLang;
 
   @override
   void initState() {
     super.initState();
+    checkUserSelectedLanguage();
     // Trigger the fade-in after a short delay
     Timer(Duration(milliseconds: 500), () {
       setState(() {
@@ -22,9 +28,22 @@ class _SplashScreenState extends State<SplashScreen> {
     });
 
     Timer(Duration(seconds: 3), () {
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => InstructionScreen()),
-      );
+      if (hasUserSelectedLang != null) {
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (context) => InstructionScreen()),
+        );
+      } else {
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (context) => LanguageSelectionScreen()),
+        );
+      }
+    });
+  }
+
+  void checkUserSelectedLanguage() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      hasUserSelectedLang = prefs.getString("appLanguage");
     });
   }
 

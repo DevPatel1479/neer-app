@@ -5,6 +5,7 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:neer/home_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:crypto/crypto.dart'; // For sha256 hashing
+import 'generated/l10n.dart';
 
 class PartialRegistrationScreen extends StatelessWidget {
   final String email;
@@ -112,7 +113,7 @@ class _VolunteerYourselfState extends State<PartialVolunteerYourself> {
       if (formData['state'] == null || formData['state']['label'] == null) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Please select a state'),
+            content: Text(S.of(context).please_select_a_state),
             duration: Duration(seconds: 1),
           ),
         );
@@ -122,7 +123,7 @@ class _VolunteerYourselfState extends State<PartialVolunteerYourself> {
       if (formData['city'] == null || formData['city']['label'] == null) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Please select a city'),
+            content: Text(S.of(context).please_select_a_city),
             duration: Duration(seconds: 1),
           ),
         );
@@ -148,7 +149,7 @@ class _VolunteerYourselfState extends State<PartialVolunteerYourself> {
           });
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content: Text('User with this email already exists!'),
+              content: Text(S.of(context).user_with_this_email_already_exists),
             ),
           );
         } else {
@@ -193,7 +194,7 @@ class _VolunteerYourselfState extends State<PartialVolunteerYourself> {
 
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Failed to submit the form. Please try again later.'),
+            content: Text(S.of(context).failed_to_submit_form),
           ),
         );
       }
@@ -249,7 +250,7 @@ class _VolunteerYourselfState extends State<PartialVolunteerYourself> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Create New Account'),
+        title: Text(S.of(context).create_new_account),
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {
@@ -271,7 +272,7 @@ class _VolunteerYourselfState extends State<PartialVolunteerYourself> {
                   padding: const EdgeInsets.symmetric(vertical: 8.0),
                   child: TextFormField(
                     decoration: InputDecoration(
-                      labelText: 'First Name',
+                      labelText: S.of(context).firstName,
                       border: OutlineInputBorder(),
                       filled: true,
                       fillColor: Colors.grey[200],
@@ -285,7 +286,7 @@ class _VolunteerYourselfState extends State<PartialVolunteerYourself> {
                   padding: const EdgeInsets.symmetric(vertical: 8.0),
                   child: TextFormField(
                     decoration: InputDecoration(
-                      labelText: 'Last Name',
+                      labelText: S.of(context).lastName,
                       border: OutlineInputBorder(),
                       filled: true,
                       fillColor: Colors.grey[200],
@@ -301,7 +302,7 @@ class _VolunteerYourselfState extends State<PartialVolunteerYourself> {
                   padding: const EdgeInsets.symmetric(vertical: 8.0),
                   child: TextFormField(
                     decoration: InputDecoration(
-                      labelText: 'Institute Name',
+                      labelText: S.of(context).instituteName,
                       border: OutlineInputBorder(),
                       filled: true,
                       fillColor: Colors.grey[200],
@@ -316,7 +317,7 @@ class _VolunteerYourselfState extends State<PartialVolunteerYourself> {
                   padding: const EdgeInsets.symmetric(vertical: 8.0),
                   child: DropdownButtonFormField<Map<String, dynamic>>(
                     decoration: InputDecoration(
-                      labelText: 'Select State',
+                      labelText: S.of(context).selectState,
                       border: OutlineInputBorder(),
                       filled: true,
                       fillColor: Colors.grey[200],
@@ -329,7 +330,7 @@ class _VolunteerYourselfState extends State<PartialVolunteerYourself> {
                     }).toList(),
                     onChanged: handleStateChange,
                     value: formData['state'],
-                    hint: Text('Select a state'),
+                    hint: Text(S.of(context).selectState),
                   ),
                 ),
                 // City Dropdown
@@ -337,7 +338,7 @@ class _VolunteerYourselfState extends State<PartialVolunteerYourself> {
                   padding: const EdgeInsets.symmetric(vertical: 8.0),
                   child: DropdownButtonFormField<Map<String, dynamic>>(
                     decoration: InputDecoration(
-                      labelText: 'Select City',
+                      labelText: S.of(context).selectCity,
                       border: OutlineInputBorder(),
                       filled: true,
                       fillColor: Colors.grey[200],
@@ -353,8 +354,8 @@ class _VolunteerYourselfState extends State<PartialVolunteerYourself> {
                     onChanged:
                         formData['state'] != null ? handleCityChange : null,
                     value: formData['city'],
-                    hint: Text('Select a city'),
-                    disabledHint: Text('Select a state first'),
+                    hint: Text(S.of(context).selectCity),
+                    disabledHint: Text(S.of(context).select_a_state_first),
                   ),
                 ),
                 // Register Button
@@ -379,7 +380,7 @@ class _VolunteerYourselfState extends State<PartialVolunteerYourself> {
                               strokeWidth: 2.0,
                             ),
                           )
-                        : Text('Register',
+                        : Text(S.of(context).register,
                             style: TextStyle(
                                 fontSize: 16)), // Button text when not loading
                   ),

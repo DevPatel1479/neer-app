@@ -1,0 +1,281 @@
+{
+    "@@locale": "en",
+    "crowd_sourcing" : "Crowd Sourcing to Find and Report Water Quality Parameters",
+    "aboutNeer": "About NEER?",
+    "projectNeerDescription": "Project NEER was conceived by Department of Computer Science, Gujarat University under intellectual guidance from Space Application Centre (SAC), Indian Space Research Organisation (ISRO). The project is sponsored by Department of Science and Technology (DST), India for the year 2021-2024. The main objective of the project is to exploit the power of Citizen Science tools in monitoring water bodies and managing water resources division support system.",
+    "parametersUsed": "What are the parameters used?",
+    "waterParameters": "Turbidity, FUI index, chlorophyll, temperature, pH, DO, Conductivity, Secchi depth.",
+     "app_description": "What does this App do?",
+      "neer_app_description": "This NEER Application will provide the important information about the water quality parameters of inland water bodies. A registered volunteer now a citizen scientist captures photo of water body and measures chemical properties through instrument. The measured data is sent to a remote server tagged with location of volunteer, date and time of observation. The collected data repository on a hosted server is available for further analysis.",
+      "who_are_we": "Who are we?",
+      "collaborative_workgroup": "We are a collaborative workgroup of scientists (SAC), professors (Gujarat University), research scholars and citizen scientists working collectively on the major water issues.",
+       "how_to_proceed": "How to Proceed?",
+        "click_get_started": "Click the “Let’s get started” button to move on to the user information page. Continue to set the location, Select the water body and enter the information manually. Images of water, Gray card and sky are taken for Turbidity, chlorophyll and FUI index estimation. Be sure to touch the save button on the bottom of each page. Individual page instructs that how to proceed to next. The final tab helps to submit the user data.",
+        "how_will_we_use_this_data": "How will we use this data?",
+        "collected_data_usage": "The collected data will be used to analyze the water quality and improve the monitoring processes. This data helps in understanding water quality parameters and managing water resources effectively.",
+         "lets_get_started": "LET'S GET STARTED!",
+          "neer": "NEER",
+           "welcome": "WELCOME",
+            "help": "Help",
+             "developed_part_of_project_neer": "Developed as a part of project 'NEER' funded by DST under 'WTI 2019'",
+
+        
+             "completeProfile": "Complete Your Profile",
+             "firstName": "First Name",
+             "lastName": "Last Name",
+             "instituteName": "Institute Name",
+             "selectState": "Select State",
+             "selectCity": "Select City",
+             "error": "Error: {error}",
+             "fillAllFields": "Please fill all fields.",
+             "submit": "Submit",
+             "validEmail": "Please enter a valid email address.",
+             "incorrectPassword": "Incorrect password. Please try again.",
+             "emailNotFound": "Email not found. Please sign up.",
+             "loginFailed": "Failed to login. Please try again later.",
+             "enterEmailPassword": "Please enter your email and password.",
+             "signingIn": "Signing In",
+             "pleaseWait": "Please wait while we sign you in...",
+             "signInFailed": "Sign-In Failed",
+             "signInError": "An error occurred during sign-in: {error}",
+             "ok": "OK",
+             "userInfo": "User Information",
+             "email": "Email",
+             "password": "Password",
+             "selectLanguage": "Select Language",
+             "english": "English",
+             "hindi": "Hindi",
+             "gujarati": "Gujarati",
+              "logging_in_please_wait": "Logging in, please wait...",
+               "login": "LOGIN",
+               "create_new_account": "CREATE NEW ACCOUNT",
+               "or": "OR",
+               "continue_with_google": "Continue with Google",
+               "please_select_a_state": "Please select a state",
+               "please_select_a_city": "Please select a city",
+                 "user_with_this_email_already_exists": "User with this email already exists!",
+                  "failed_to_submit_form": "Failed to submit the form. Please try again later.",
+                   "select_a_state_first": "Select a state first",
+                    "confirm_password": "Confirm Password",
+                    "register": "Register",
+
+                "enter_observation_title": "Enter Observation Title",
+                  "observation_title": "Observation Title",
+                   "save": "Save",
+                    "cancel": "Cancel",
+                      "please_enter_valid_secchi_depth": "Please enter a valid Secchi Depth",
+                       "please_enter_valid_numeric_value_secchi_depth": "Please enter a valid numeric value for Secchi Depth",
+                         "please_enter_title_for_observation": "Please enter title for observation",
+                           "unable_to_fetch_location": "Unable to fetch location. Please ensure location services are enabled.",
+                           "data_uploaded_successfully": "Data uploaded successfully!",
+
+                             "secchi_depth_observation": "Secchi Depth Observation",
+                             "secchi_depth": "Secchi Depth",
+                               "enter_depth_in_m": "Enter the depth in (cm)",
+
+                "app_title": "Instructions to use NEER",
+  "instructions_text": "NEER Application is used to determine the water quality in terms of estimation of parameters like FUI Index, Turbidity, Chlorophyll, and SPM values. These parameters are measured through camera clicking, and Temp, pH, Depth, Dissolved Oxygen, Conductivity, and Secchi Depth are manually measured through instruments. Before that, the user has to set the location by GPS or manually, and based on that, Latitude and Longitude values can be easily fetched. After selecting the water body, the user can select the relevant parameters of that corresponding water body. The FUI index calculates the water index color through capturing the image of water. NEER has an easy-to-use interface that guides users through the collection of three images: a gray card image, a sky image, and a water image. NEER requires the use of an 18% photographer’s gray card as a reference. Gray cards are widely available at photography shops and online. Once the images are taken, they can be analyzed immediately. In the analysis of the images, NEER calculates the reflectance of the water body in the RGB color channels of the camera. It then uses the reflectance values to determine the turbidity of the water in NTU (nephelometric turbidity units). The Secchi Disk is a round white disk lowered into the water body to determine the Secchi Depth, which is the depth at which water can no longer be seen from the surface. The Secchi Depth measures the clarity of the water.",
+  "button_text": "Click to Get Location",
+
+    "fetching_location_please_wait": "Fetching location, please wait...",
+
+    "please_turn_on_location_services": "Please turn on location services.",
+
+      "please_enter_valid_coordinates": "Please enter valid coordinates!",
+
+       "location": "Location",
+
+         "lat": "Lat:",
+
+         "latitude": "Latitude",
+
+         "lon": "Lon",
+
+         "longitude": "Longitude",
+
+          "goto_next": "Go to Next",
+          "header_title": "Please Select the Ecosystem",
+          "lake": "Lake",
+          "reservoir": "Reservoir",
+          "wetland": "Wet Land",
+          "river_stream": "River/Stream",
+          "footer_message": "Please Select One WaterBody",
+          "select_ecosystem": "Select Ecosystem",
+
+
+          "select_parameters": "Select Parameters",
+  "check_boxes_instruction": "Check the boxes/click on icon to select parameters of interest",
+  "reset_button": "RESET",
+  "submit_button": "SUBMIT",
+  "select_at_least_one": "Select at least one User Entry.",
+  "temperature": "Temperature",
+  "ph": "pH",
+  "water_depth": "Water Depth",
+  "dissolved_o2": "Dissolved O2",
+  "fui_index": "FUI Index",
+  "turbidity": "Turbidity",
+
+  "in_situ_observation": "In-Situ Observation",
+  "saving_data_please_wait": "Saving data, please wait...",
+
+   "click_to_save": "Click To Save",
+
+    "user_email_not_found": "User email not found!",
+
+
+     "click_to_save_manually_entered_values": "Click the above button to save manually entered values.",
+
+
+      "data_saved_successfully": "Data saved successfully!",
+
+
+      "instructions_for_user": "Instructions for User",
+  "guidelines_to_calculate_turbidity": "Guidelines to Calculate Turbidity",
+  "capture_image_instruction_1": "1. Capture the image of Gray Card, Water, and Sky with instructed angles.",
+  "analyze_results_instruction_2": "2. Analyze the calculated Results.",
+  "visualize_histogram_instruction_3": "3. Visualize the histogram images of Gray Card, Water, and Sky images.",
+  "visualize_results_instruction_4": "4. Visualize the Results with Proper Location, Date, and Time.",
+  "gray_card_angle_instruction_5": "5. For Gray Card the angle must be between 35 and 45 degrees to take picture.",
+  "water_angle_instruction_6": "6. For Water the angle must be between 35 and 45 degrees to take picture.",
+  "sky_angle_instruction_7": "7. For Sky the angle must be between 125 and 135 degrees to take picture.",
+  "proceed": "Proceed",
+  "use_default_gray_card_image": "Use Default Gray Card Image?",
+  "yes": "Yes",
+  "no": "No",
+  "analyzing": "Analyzing",
+  "preview_images": "Preview Images",
+  "capture": "Capture",
+  
+  "captured_images_preview": "Captured Images Preview",
+  "no_image_captured": "No image captured for {label}",
+
+
+
+  "analysis_results": "Analysis Results",
+  "upload": "Upload",
+  "data_saved": "Data Saved!",
+  "done": "Done",
+  "data_already_uploaded": "Data already uploaded!",
+  "data_already_saved": "Data already saved!",
+  "histogram": "Histogram",
+  "date": "Date",
+  "time": "Time",
+  "spm": "SPM",
+  "ref_red": "Ref. Red",
+  "ref_green": "Ref. Green",
+  "ref_blue": "Ref. Blue",
+
+
+  "image_histogram": "Image Histogram",
+  "gray_card": "Gray Card",
+  "water": "Water",
+  "sky": "Sky",
+  
+  "red_histogram": "Red Histogram",
+  "green_histogram": "Green Histogram",
+  "blue_histogram": "Blue Histogram",
+  "capture_image": "Capture Image",
+
+
+
+  "observation_data_title": "Observation Data",
+  "start_date": "Start Date",
+  "end_date": "End Date",
+  "select_date": "Select Date",
+  "filter_button": "Filter",
+  "delete_observation": "Delete Observation",
+  "delete_confirmation": "Are you sure you want to delete this observation?",
+  "cancel_button": "Cancel",
+  "delete_button": "Delete",
+  "undo_button": "UNDO",
+  "observation_deleted": "Observation deleted",
+  "observation_restored": "Observation restored",
+  "no_observations": "No observations taken.",
+  "reflectance_red": "Reflectance Red",
+  "reflectance_green": "Reflectance Green",
+  "reflectance_blue": "Reflectance Blue",
+  "reflectance": "Reflectance",
+  "ph_value": "Ph Value",
+
+
+
+  "waterButtonText": "Water",
+  "@waterButtonText": {
+    "description": "Text for the 'Water' button"
+  },
+  "newMeasurementButtonText": "New Measurement",
+  "@newMeasurementButtonText": {
+    "description": "Text for the 'New Measurement' button"
+  },
+  "defaultPitchValue": "0.00",
+  "@defaultPitchValue": {
+    "description": "Default value for pitch angle display"
+  },
+
+
+  "color_details_title": "Color Details",
+  "color_info_label": "Color Information: {label}",
+  "x_label": "X: ",
+  "y_label": "Y: ",
+  "corrected_angle_label": "Corrected Angle: ",
+  "angle_label": "Angle: ",
+
+
+  "results_title": "Results",
+  "triangle_value": "Triangle Value: {value}",
+  "x_value": "X Value: {value}",
+  "y_value": "Y Value: {value}",
+  "angle_value": "Angle Value: {value}",
+  "corrected_angle": "Corrected Angle: {value}",
+  
+  "loading_indicator": "Loading...",
+  
+  "data_save_failed": "Failed to save data: {error}",
+
+
+
+  "appBarTitle": "Instructions to Use FUI Index",
+  "instruction1": "Capture the photo of the waterbody by clicking the proceed button and enter the index value.",
+  "instruction2": "Calculate the FUI index value from the image capture and verify.",
+  "buttonText": "Click to Get Proceed",
+
+
+  "gridScreenTitle": "Select Water Colour",
+  "imageCaptured": "Image you captured",
+  "selectWaterColour": "Select Water Colour",
+  "submitButton": "SUBMIT",
+  "invalidSelectionTitle": "Invalid Selection",
+  "invalidSelectionMessage": "Please select exactly 1 color.",
+  "snackBarMessage": "You can only select 1 color.",
+
+
+
+
+  "helpScreenTitle": "Help",
+  "howToUse": "HOW TO USE IT:",
+  "instruction1_1": "1. Capture 3 images:",
+  "subInstruction1": "(i) Photographer’s 18% gray card",
+  "subInstruction2": "(ii) Water image",
+  "subInstruction3": "(iii) Sky image",
+  "instruction2_2": "2. When capturing images, make sure the sun position is left side or right side behind you, but not in front of you.",
+  "instruction3": "3. The gray card is a piece of paper or cardboard with a known 18% reflectance value (similar to Kodak’s 18% reflectance). They can be purchased at photography shops or online.",
+  "instruction4": "4. The first image you need to collect is the photographer's gray card. Place the card on a level surface that is unsaturated. Be sure the card is in an unsaturated area where you plan to take the water image.",
+  "instruction5": "5. Ensure your shadow is not covering the card.",
+  "instruction6": "6. The angle of the mobile for image of gray card and water must be 35 to 55 degrees, and for sky, the angle must be 125 to 135 degrees.",
+  "instruction7": "7. A clinometer at the bottom will direct you to the correct angle to take the photograph. When the angle is correct, the circle will become full, and the border of the blue bubble will be red.",
+  "instruction8": "8. For best results, use NIR if the present areas are accessible. If the bottom areas shrink, this area is too shallow to be NIR.",
+  "instruction9": "9. After capturing all three images, the analysis button will calculate and display the reflectance data.",
+  "instruction10": "10. The images are saved in your mobile’s NIR folder.",
+  "instruction11": "11. You can also see the Histogram of all images.",
+  "instruction12": "12. You can save the data locally and also upload it to the server.",
+  "instruction13": "13. The result button will display all previous records. You can filter all results based on your choice.",
+  "instruction14": "14. For new measurement, click on “new measurement button.”",
+  "instruction15": "15. You can enter latitude and longitude for your options and also touch on the map to zoom.",
+  "instruction16": "16. Similarly, TUI index calculates the index color through capturing the image of water and the Secchi depth measures the clarity of water.",
+  "closeButton": "CLOSE",
+
+  "chlorophyll" : "Chlorophyll"
+
+        
+
+}

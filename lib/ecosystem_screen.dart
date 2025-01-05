@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:neer/user_manage_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'generated/l10n.dart';
 
 class EcosystemScreen extends StatelessWidget {
   void _onImageTap(String ecosystem) {
@@ -42,7 +43,7 @@ class EcosystemScreen extends StatelessWidget {
                     Expanded(
                       child: Center(
                         child: Text(
-                          'Please Select the Ecosystem',
+                          S.of(context).header_title,
                           style: TextStyle(
                             color: Colors.black,
                             fontSize: screenWidth * 0.06,
@@ -81,7 +82,7 @@ class EcosystemScreen extends StatelessWidget {
                             height: screenHeight * 0.2,
                           ),
                           Text(
-                            'Lake',
+                            S.of(context).lake,
                             style: TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.bold,
@@ -112,7 +113,7 @@ class EcosystemScreen extends StatelessWidget {
                             height: screenHeight * 0.2,
                           ),
                           Text(
-                            'Reservoir',
+                            S.of(context).reservoir,
                             style: TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.bold,
@@ -141,7 +142,7 @@ class EcosystemScreen extends StatelessWidget {
                             height: screenHeight * 0.2,
                           ),
                           Text(
-                            'Wet Land',
+                            S.of(context).wetland,
                             style: TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.bold,
@@ -170,7 +171,7 @@ class EcosystemScreen extends StatelessWidget {
                             height: screenHeight * 0.2,
                           ),
                           Text(
-                            'River/Stream',
+                            S.of(context).river_stream,
                             style: TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.bold,
@@ -189,7 +190,7 @@ class EcosystemScreen extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.only(bottom: screenHeight * 0.05),
                 child: Text(
-                  'Please Select One WaterBody',
+                  S.of(context).footer_message,
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: screenWidth * 0.06,

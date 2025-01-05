@@ -1,25 +1,23 @@
-import 'dart:io';
+// import 'dart:io';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:neer/local_database/database_helper.dart';
 import 'package:intl/intl.dart'; // Import for date formatting
+import 'generated/l10n.dart';
 
 class ObservationDataScreen extends StatefulWidget {
   @override
   _ObservationDataScreenState createState() => _ObservationDataScreenState();
 }
-
 class _ObservationDataScreenState extends State<ObservationDataScreen> {
   late Future<List<Map<String, dynamic>>> _observations;
   DateTime? _startDate;
   DateTime? _endDate;
-
   @override
   void initState() {
     super.initState();
     _observations = fetchObservations();
   }
-
   Future<List<Map<String, dynamic>>> fetchObservations() async {
     final db =
         await DatabaseHelper.instance.database; // Access the singleton instance
@@ -110,7 +108,7 @@ class _ObservationDataScreenState extends State<ObservationDataScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Observation Data"),
+        title: Text(S.of(context).observation_data_title),
         backgroundColor: Color(0xFF4facfc),
       ),
       body: Column(
@@ -120,22 +118,22 @@ class _ObservationDataScreenState extends State<ObservationDataScreen> {
             children: [
               Column(
                 children: [
-                  Text("Start Date"),
+                  Text(S.of(context).start_date),
                   ElevatedButton(
                     onPressed: () => _selectStartDate(context),
                     child: Text(_startDate == null
-                        ? 'Select Date'
+                        ? S.of(context).select_date
                         : DateFormat('yyyy-MM-dd').format(_startDate!)),
                   ),
                 ],
               ),
               Column(
                 children: [
-                  Text("End Date"),
+                  Text(S.of(context).end_date),
                   ElevatedButton(
                     onPressed: () => _selectEndDate(context),
                     child: Text(_endDate == null
-                        ? 'Select Date'
+                        ? S.of(context).select_date
                         : DateFormat('yyyy-MM-dd').format(_endDate!)),
                   ),
                 ],
@@ -149,7 +147,7 @@ class _ObservationDataScreenState extends State<ObservationDataScreen> {
                       _observations = fetchFilteredObservations();
                     });
                   },
-                  child: Text("Filter"),
+                  child: Text(S.of(context).filter_button),
                 ),
               ),
             ],
@@ -163,7 +161,7 @@ class _ObservationDataScreenState extends State<ObservationDataScreen> {
                 } else if (snapshot.hasError) {
                   return Center(child: Text("Error: ${snapshot.error}"));
                 } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-                  return Center(child: Text("No observations taken."));
+                  return Center(child: Text(S.of(context).no_observations));
                 }
 
                 final observations = snapshot.data!;
@@ -221,14 +219,14 @@ class _ObservationDataScreenState extends State<ObservationDataScreen> {
       builder: (BuildContext dialogContext) {
         // Use dialogContext instead of context
         return AlertDialog(
-          title: Text("Delete Observation"),
-          content: Text("Are you sure you want to delete this observation?"),
+          title: Text(S.of(context).delete_observation),
+          content: Text(S.of(context).delete_confirmation),
           actions: [
             TextButton(
               onPressed: () {
                 Navigator.of(dialogContext).pop(); // Close the dialog
               },
-              child: Text("Cancel"),
+              child: Text(S.of(context).cancel),
             ),
             TextButton(
               onPressed: () async {
@@ -245,7 +243,7 @@ class _ObservationDataScreenState extends State<ObservationDataScreen> {
                   // Ensure the widget is still mounted
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
-                      content: Text("Observation deleted"),
+                      content: Text(S.of(context).observation_deleted),
                       action: SnackBarAction(
                         label: "UNDO",
                         onPressed: () async {
@@ -261,7 +259,9 @@ class _ObservationDataScreenState extends State<ObservationDataScreen> {
                           if (mounted) {
                             // Check if still mounted
                             ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(content: Text("Observation restored")),
+                              SnackBar(
+                                  content:
+                                      Text(S.of(context).observation_restored)),
                             );
                           }
                         },
@@ -276,7 +276,7 @@ class _ObservationDataScreenState extends State<ObservationDataScreen> {
                       fetchFilteredObservations(); // Fetch updated list
                 });
               },
-              child: Text("Delete"),
+              child: Text(S.of(context).delete_button),
             ),
           ],
         );
@@ -324,7 +324,7 @@ class ObservationDetailScreen extends StatelessWidget {
                     children: [
                       Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: Text('Date')),
+                          child: Text(S.of(context).date)),
                       Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Text(observationData['date'])),
@@ -334,7 +334,7 @@ class ObservationDetailScreen extends StatelessWidget {
                     children: [
                       Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: Text('Time')),
+                          child: Text(S.of(context).time)),
                       Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Text(observationData['time'])),
@@ -344,7 +344,7 @@ class ObservationDetailScreen extends StatelessWidget {
                     children: [
                       Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: Text('Turbidity')),
+                          child: Text(S.of(context).turbidity)),
                       Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Text(observationData['turbidity'].toString())),
@@ -354,7 +354,7 @@ class ObservationDetailScreen extends StatelessWidget {
                     children: [
                       Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: Text('SPM')),
+                          child: Text(S.of(context).spm)),
                       Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Text(observationData['spm'].toString())),
@@ -364,7 +364,21 @@ class ObservationDetailScreen extends StatelessWidget {
                     children: [
                       Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: Text('Temperature'),
+                        child: Text(S.of(context).chlorophyll),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          (observationData['chlorophyll']?.toString() ?? 'N/A'),
+                        ),
+                      ),
+                    ],
+                  ),
+                  TableRow(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(S.of(context).temperature),
                       ),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
@@ -378,7 +392,7 @@ class ObservationDetailScreen extends StatelessWidget {
                     children: [
                       Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: Text('Ph Value'),
+                        child: Text(S.of(context).ph_value),
                       ),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
@@ -392,21 +406,7 @@ class ObservationDetailScreen extends StatelessWidget {
                     children: [
                       Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: Text('Water Depth'),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text(
-                          (observationData['water_depth']?.toString() ?? 'N/A'),
-                        ),
-                      ),
-                    ],
-                  ),
-                  TableRow(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text('Dissolved O2'),
+                        child: Text(S.of(context).dissolved_o2),
                       ),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
@@ -421,7 +421,7 @@ class ObservationDetailScreen extends StatelessWidget {
                     children: [
                       Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: Text('Secchi Depth'),
+                        child: Text(S.of(context).secchi_depth),
                       ),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
@@ -436,7 +436,7 @@ class ObservationDetailScreen extends StatelessWidget {
                     children: [
                       Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: Text('Latitude')),
+                          child: Text(S.of(context).latitude)),
                       Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Text(observationData['latitude'].toString())),
@@ -446,7 +446,7 @@ class ObservationDetailScreen extends StatelessWidget {
                     children: [
                       Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: Text('Longitude')),
+                          child: Text(S.of(context).longitude)),
                       Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Text(observationData['longitude'].toString())),
@@ -456,7 +456,7 @@ class ObservationDetailScreen extends StatelessWidget {
                     children: [
                       Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: Text('Reflectance Red')),
+                          child: Text(S.of(context).reflectance_red)),
                       Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Text(observationData['ref_red'].toString())),
@@ -466,7 +466,7 @@ class ObservationDetailScreen extends StatelessWidget {
                     children: [
                       Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: Text('Reflectance Green')),
+                          child: Text(S.of(context).reflectance_green)),
                       Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Text(observationData['ref_green'].toString())),
@@ -476,7 +476,7 @@ class ObservationDetailScreen extends StatelessWidget {
                     children: [
                       Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: Text('Reflectance Blue')),
+                          child: Text(S.of(context).reflectance_blue)),
                       Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Text(observationData['ref_blue'].toString())),
@@ -486,7 +486,7 @@ class ObservationDetailScreen extends StatelessWidget {
               ),
               SizedBox(height: 20),
               Text(
-                'Reflectance',
+                S.of(context).reflectance,
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
               SizedBox(height: 10),

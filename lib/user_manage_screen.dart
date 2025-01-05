@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:neer/observation_data_screen.dart';
 import 'package:neer/selected_entry_screen.dart';
+import 'generated/l10n.dart';
 
 class UserManage extends StatefulWidget {
   @override
@@ -8,11 +9,11 @@ class UserManage extends StatefulWidget {
 }
 
 class _UserManageState extends State<UserManage> {
-  List<bool> _isChecked = List.generate(7, (index) => false);
+  List<bool> _isChecked = List.generate(6, (index) => false);
   final List<String> _titles = [
     "Temperature",
     "pH",
-    "Water Depth",
+    // "Water Depth",
     "Dissolved O2",
     "FUI Index",
     "Turbidity",
@@ -23,7 +24,7 @@ class _UserManageState extends State<UserManage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: Text("Select Parameters"),
+          title: Text(S.of(context).select_parameters),
           backgroundColor: Color(0xFF4facfc),
           actions: [
             IconButton(
@@ -37,7 +38,7 @@ class _UserManageState extends State<UserManage> {
         child: Column(
           children: [
             Text(
-              "Check the boxes/click on icon to select parameters of interest",
+              S.of(context).check_boxes_instruction,
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 20, color: Colors.black),
             ),
@@ -51,16 +52,16 @@ class _UserManageState extends State<UserManage> {
                       index: 0),
                   _buildCheckboxTile(
                       title: _titles[1], icon: Icons.photo, index: 1),
+                  // _buildCheckboxTile(
+                  //     title: _titles[2], icon: Icons.water, index: 2),
                   _buildCheckboxTile(
-                      title: _titles[2], icon: Icons.water, index: 2),
+                      title: _titles[2], icon: Icons.opacity, index: 2),
                   _buildCheckboxTile(
-                      title: _titles[3], icon: Icons.opacity, index: 3),
+                      title: _titles[3], icon: Icons.auto_awesome, index: 3),
                   _buildCheckboxTile(
-                      title: _titles[4], icon: Icons.auto_awesome, index: 4),
+                      title: _titles[4], icon: Icons.waves, index: 4),
                   _buildCheckboxTile(
-                      title: _titles[5], icon: Icons.waves, index: 5),
-                  _buildCheckboxTile(
-                      title: _titles[6], icon: Icons.visibility, index: 6),
+                      title: _titles[5], icon: Icons.visibility, index: 5),
                 ],
               ),
             ),
@@ -75,7 +76,7 @@ class _UserManageState extends State<UserManage> {
                     });
                   },
                   child: Text(
-                    "RESET",
+                    S.of(context).reset_button,
                     style: TextStyle(color: Colors.white),
                   ),
                   style: TextButton.styleFrom(
@@ -90,7 +91,7 @@ class _UserManageState extends State<UserManage> {
                     if (selectedLabels.isEmpty) {
                       ScaffoldMessenger.of(context).clearSnackBars();
                       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                        content: Text("Select at least one User Entry."),
+                        content: Text(S.of(context).select_at_least_one),
                         duration: Duration(seconds: 1),
                       ));
                     } else {
@@ -100,7 +101,8 @@ class _UserManageState extends State<UserManage> {
                               selectedParameters: selectedLabels)));
                     }
                   },
-                  child: Text("SUBMIT", style: TextStyle(color: Colors.white)),
+                  child: Text(S.of(context).submit_button,
+                      style: TextStyle(color: Colors.white)),
                   style: TextButton.styleFrom(
                     backgroundColor: Colors.blue,
                     padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),

@@ -5,7 +5,8 @@ import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 import 'package:firebase_database/firebase_database.dart'; // Import Firebase Database
 import 'package:shared_preferences/shared_preferences.dart'; // Import shared_preferences
-import 'package:neer/local_database/database_helper.dart';
+// import 'package:neer/local_database/database_helper.dart';
+import 'generated/l10n.dart';
 
 class AnalysisResultScreen extends StatefulWidget {
   final String date;
@@ -18,6 +19,7 @@ class AnalysisResultScreen extends StatefulWidget {
   final double refRed;
   final double refGreen;
   final double refBlue;
+
   final List<XFile?> capturedImages;
 
   AnalysisResultScreen({
@@ -56,7 +58,7 @@ class _AnalysisResultScreenState extends State<AnalysisResultScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Analysis Results'),
+        title: Text(S.of(context).analysis_results),
         backgroundColor: Colors.blueAccent,
       ),
       body: Container(
@@ -70,15 +72,23 @@ class _AnalysisResultScreenState extends State<AnalysisResultScreen> {
                 child: Table(
                   border: TableBorder.all(color: Colors.black, width: 1),
                   children: [
-                    _buildTableRow('Date', widget.date),
-                    _buildTableRow('Time', widget.time),
-                    _buildTableRow('Turbidity', "${widget.turbidity}"),
-                    _buildTableRow('SPM', "${widget.spm}"),
-                    _buildTableRow('Latitude', widget.latitude.toString()),
-                    _buildTableRow('Longitude', widget.longitude.toString()),
-                    _buildTableRow('Ref. Red', widget.refRed.toString()),
-                    _buildTableRow('Ref. Green', widget.refGreen.toString()),
-                    _buildTableRow('Ref. Blue', widget.refBlue.toString()),
+                    _buildTableRow(S.of(context).date, widget.date),
+                    _buildTableRow(S.of(context).time, widget.time),
+                    _buildTableRow(
+                        S.of(context).turbidity, "${widget.turbidity}"),
+                    _buildTableRow(S.of(context).spm, "${widget.spm}"),
+                    _buildTableRow(
+                        S.of(context).chlorophyll, "${widget.chlorophyll}"),
+                    _buildTableRow(
+                        S.of(context).latitude, widget.latitude.toString()),
+                    _buildTableRow(
+                        S.of(context).longitude, widget.longitude.toString()),
+                    _buildTableRow(
+                        S.of(context).ref_red, widget.refRed.toString()),
+                    _buildTableRow(
+                        S.of(context).ref_green, widget.refGreen.toString()),
+                    _buildTableRow(
+                        S.of(context).ref_blue, widget.refBlue.toString()),
                   ],
                 ),
               ),
@@ -97,7 +107,7 @@ class _AnalysisResultScreenState extends State<AnalysisResultScreen> {
                               capturedImages: widget.capturedImages)));
                     },
                     child: Text(
-                      'Histogram',
+                      S.of(context).histogram,
                       style: TextStyle(fontSize: 16), // Adjusted font size
                     ),
                     style: ElevatedButton.styleFrom(
@@ -115,14 +125,14 @@ class _AnalysisResultScreenState extends State<AnalysisResultScreen> {
                       if (_locallyAlreadySaved == true) {
                         ScaffoldMessenger.of(context).clearSnackBars();
                         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                            content: Text("Data already saved!"),
+                            content: Text(S.of(context).data_already_saved),
                             duration: Duration(seconds: 1)));
                       } else {
                         _showSaveDialog(context); // Show the save dialog
                       }
                     },
                     child: Text(
-                      'Save',
+                      S.of(context).save,
                       style: TextStyle(fontSize: 16),
                     ),
                     style: ElevatedButton.styleFrom(
@@ -143,7 +153,8 @@ class _AnalysisResultScreenState extends State<AnalysisResultScreen> {
                               ScaffoldMessenger.of(context).clearSnackBars();
                               ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(
-                                      content: Text("Data already uploaded!"),
+                                      content: Text(
+                                          S.of(context).data_already_uploaded),
                                       duration: Duration(seconds: 1)));
                             } else {
                               _uploadData(context);
@@ -160,7 +171,7 @@ class _AnalysisResultScreenState extends State<AnalysisResultScreen> {
                             ),
                           )
                         : Text(
-                            'Upload',
+                            S.of(context).upload,
                             style: TextStyle(fontSize: 16),
                           ),
                     style: ElevatedButton.styleFrom(
@@ -204,6 +215,7 @@ class _AnalysisResultScreenState extends State<AnalysisResultScreen> {
       'water_body': waterBody,
       'turbidity': widget.turbidity,
       'spm': widget.spm,
+      'chloro': widget.chlorophyll,
       'latitude': widget.latitude,
       'longitude': widget.longitude,
       'ref_red': widget.refRed,
@@ -218,7 +230,7 @@ class _AnalysisResultScreenState extends State<AnalysisResultScreen> {
       // Show success message
 
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text('Data uploaded successfully!'),
+        content: Text(S.of(context).data_uploaded_successfully),
         duration: Duration(seconds: 1),
       ));
       setState(() {
@@ -271,33 +283,35 @@ class _AnalysisResultScreenState extends State<AnalysisResultScreen> {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: Text('Enter Observation Title'),
+          title: Text(S.of(context).enter_observation_title),
           content: TextField(
             onChanged: (value) {
               title = value;
             },
-            decoration: InputDecoration(hintText: "Observation Title"),
+            decoration:
+                InputDecoration(hintText: S.of(context).observation_title),
           ),
           actions: [
             TextButton(
-              child: Text('Done'),
+              child: Text(S.of(context).done),
               onPressed: () {
                 if (title.isNotEmpty) {
                   _saveData(title); // Call the save method
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                    content: Text('Data Saved!'),
+                    content: Text(S.of(context).data_saved),
                     duration: Duration(seconds: 1),
                   ));
                   Navigator.of(context).pop(); // Close the dialog
                 } else {
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                    content: Text('Please enter a title.'),
+                    content:
+                        Text(S.of(context).please_enter_title_for_observation),
                   ));
                 }
               },
             ),
             TextButton(
-              child: Text('Cancel'),
+              child: Text(S.of(context).cancel),
               onPressed: () {
                 Navigator.of(context).pop(); // Close the dialog
               },
@@ -320,6 +334,7 @@ class _AnalysisResultScreenState extends State<AnalysisResultScreen> {
       'time': widget.time,
       'turbidity': widget.turbidity,
       'spm': widget.spm,
+      'chlorophyll': widget.chlorophyll,
       'latitude': widget.latitude,
       'longitude': widget.longitude,
       'ref_red': widget.refRed,
@@ -343,7 +358,7 @@ class _AnalysisResultScreenState extends State<AnalysisResultScreen> {
     // Open the database and create the table if it doesn't exist
     return await openDatabase(
       path,
-      version: 2,
+      version: 3,
       onCreate: (Database db, int version) async {
         await db.execute('''
           CREATE TABLE observations_data (
@@ -353,6 +368,7 @@ class _AnalysisResultScreenState extends State<AnalysisResultScreen> {
             time TEXT,
             turbidity TEXT,
             spm TEXT,
+            chlorophyll TEXT,
             latitude REAL,
             longitude REAL,
             ref_red REAL,

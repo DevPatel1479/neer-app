@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'generated/l10n.dart';
 
 class Help extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Help'),
+        title: Text(S.of(context).helpScreenTitle),
         backgroundColor: Colors.blue,
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
@@ -20,57 +21,42 @@ class Help extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'HOW TO USE IT:',
+              S.of(context).howToUse,
               style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 22,
                   color: Colors.blueAccent),
             ),
             SizedBox(height: 20),
-            buildInstructionsText('1. Capture 3 images:'),
-            buildSubInstructionsText('(i) Photographer’s 18% gray card'),
-            buildSubInstructionsText('(ii) Water image'),
-            buildSubInstructionsText('(iii) Sky image'),
+            buildInstructionsText(S.of(context).instruction1_1),
+            buildSubInstructionsText(S.of(context).subInstruction1),
+            buildSubInstructionsText(S.of(context).subInstruction2),
+            buildSubInstructionsText(S.of(context).subInstruction3),
             SizedBox(height: 10),
-            buildInstructionsText(
-                '2. When capturing images, make sure the sun position is left side or right side behind you, but not in front of you.'),
+            buildInstructionsText(S.of(context).instruction2_2),
             SizedBox(height: 10),
-            buildInstructionsText(
-                '3. The gray card is a piece of paper or cardboard with a known 18% reflectance value (similar to Kodak’s 18% reflectance). They can be purchased at photography shops or online.'),
+            buildInstructionsText(S.of(context).instruction3),
             SizedBox(height: 10),
-            buildInstructionsText(
-                '4. The first image you need to collect is the photographer\'s gray card. Place the card on a level surface that is unsaturated. Be sure the card is in an unsaturated area where you plan to take the water image.'),
-            buildInstructionsText(
-                '5. Ensure your shadow is not covering the card.'),
+            buildInstructionsText(S.of(context).instruction4),
+            buildInstructionsText(S.of(context).instruction5),
             SizedBox(height: 10),
-            buildInstructionsText(
-                '6. The angle of the mobile for image of gray card and water must be 35 to 55 degrees, and for sky, the angle must be 125 to 135 degrees.'),
+            buildInstructionsText(S.of(context).instruction6),
             SizedBox(height: 10),
-            buildInstructionsText(
-                '7. A clinometer at the bottom will direct you to the correct angle to take the photograph. When the angle is correct, the circle will become full, and the border of the blue bubble will be red.'),
+            buildInstructionsText(S.of(context).instruction7),
             SizedBox(height: 10),
-            buildInstructionsText(
-                '8. For best results, use NIR if the present areas are accessible. If the bottom areas shrink, this area is too shallow to be NIR.'),
+            buildInstructionsText(S.of(context).instruction8),
             SizedBox(height: 10),
-            buildInstructionsText(
-                '9. After capturing all three images, the analysis button will calculate and display the reflectance data.'),
+            buildInstructionsText(S.of(context).instruction9),
             SizedBox(height: 10),
-            buildInstructionsText(
-                '10. The images are saved in your mobile’s NIR folder.'),
-            buildInstructionsText(
-                '11. You can also see the Histogram of all images.'),
-            buildInstructionsText(
-                '12. You can save the data locally and also upload it to the server.'),
+            buildInstructionsText(S.of(context).instruction10),
+            buildInstructionsText(S.of(context).instruction11),
+            buildInstructionsText(S.of(context).instruction12),
             SizedBox(height: 10),
-            buildInstructionsText(
-                '13. The result button will display all previous records. You can filter all results based on your choice.'),
-            buildInstructionsText(
-                '14. For new measurement, click on “new measurement button.”'),
-            buildInstructionsText(
-                '15. You can enter latitude and longitude for your options and also touch on the map to zoom.'),
+            buildInstructionsText(S.of(context).instruction13),
+            buildInstructionsText(S.of(context).instruction14),
+            buildInstructionsText(S.of(context).instruction15),
             SizedBox(height: 10),
-            buildInstructionsText(
-                '16. Similarly, TUI index calculates the index color through capturing the image of water and the Secchi depth measures the clarity of water.'),
+            buildInstructionsText(S.of(context).instruction16),
             SizedBox(height: 20),
             SizedBox(
               width: double.infinity,
@@ -80,7 +66,7 @@ class Help extends StatelessWidget {
                   Navigator.of(context).pop();
                 },
                 child: Text(
-                  'CLOSE',
+                  S.of(context).closeButton,
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
                 style: ElevatedButton.styleFrom(

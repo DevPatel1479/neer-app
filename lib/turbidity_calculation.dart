@@ -17,22 +17,21 @@ import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter/services.dart' as services;
 import 'package:native_exif/native_exif.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'generated/l10n.dart';
 
 class TurbidityCalculationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
-
     // Dynamic text size based on screen width
     double textSize =
         screenWidth * 0.05; // Adjust text size relative to screen width
     double spacing =
         screenHeight * 0.02; // Adjust spacing relative to screen height
-
     return Scaffold(
       appBar: AppBar(
-        title: Text("Instructions for User"),
+        title: Text(S.of(context).instructions_for_user),
         backgroundColor: Color(0xFF4facfc),
       ),
       backgroundColor: Colors.white,
@@ -43,7 +42,7 @@ class TurbidityCalculationScreen extends StatelessWidget {
           Container(
             padding: const EdgeInsets.all(8.0),
             child: Text(
-              "Guidelines to Calculate Turbidity",
+              S.of(context).guidelines_to_calculate_turbidity,
               style: TextStyle(
                 color: Colors.black,
                 fontSize: 25,
@@ -52,7 +51,6 @@ class TurbidityCalculationScreen extends StatelessWidget {
             ),
           ),
           SizedBox(height: 20), // Spacing below header
-
           // Instruction Texts
           Expanded(
             child: SingleChildScrollView(
@@ -61,37 +59,37 @@ class TurbidityCalculationScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "1. Capture the image of Gray Card, Water, and Sky with instructed angles.",
+                    S.of(context).capture_image_instruction_1,
                     style: TextStyle(color: Colors.black, fontSize: 20),
                   ),
                   SizedBox(height: spacing),
                   Text(
-                    "2. Analyze the calculated Results.",
+                    S.of(context).analyze_results_instruction_2,
                     style: TextStyle(color: Colors.black, fontSize: 20),
                   ),
                   SizedBox(height: spacing),
                   Text(
-                    "3. Visualize the histogram images of Gray Card, Water, and Sky images.",
+                    S.of(context).visualize_histogram_instruction_3,
                     style: TextStyle(color: Colors.black, fontSize: 20),
                   ),
                   SizedBox(height: spacing),
                   Text(
-                    "4. Visualize the Results with Proper Location, Date, and Time.",
+                    S.of(context).visualize_results_instruction_4,
                     style: TextStyle(color: Colors.black, fontSize: 20),
                   ),
                   SizedBox(height: spacing),
                   Text(
-                    "5. For Gray Card the angle must be between 35 and 45 degrees to take picture.",
+                    S.of(context).gray_card_angle_instruction_5,
                     style: TextStyle(color: Colors.black, fontSize: 20),
                   ),
                   SizedBox(height: spacing),
                   Text(
-                    "6. For Water the angle must be between 35 and 45 degrees to take picture.",
+                    S.of(context).water_angle_instruction_6,
                     style: TextStyle(color: Colors.black, fontSize: 20),
                   ),
                   SizedBox(height: spacing),
                   Text(
-                    "7. For Sky the angle must be between 125 and 135 degrees to take picture.",
+                    S.of(context).sky_angle_instruction_7,
                     style: TextStyle(color: Colors.black, fontSize: 20),
                   ),
                 ],
@@ -100,7 +98,6 @@ class TurbidityCalculationScreen extends StatelessWidget {
           ),
         ],
       ),
-      // Proceed Button at the bottom of the screen
       bottomNavigationBar: Container(
         width: double.infinity, // Ensure it takes full width
         padding: const EdgeInsets.all(16.0),
@@ -113,14 +110,13 @@ class TurbidityCalculationScreen extends StatelessWidget {
             _showImageConfirmationDialog(context);
           },
           child: Text(
-            "Proceed",
+            S.of(context).proceed,
             style: TextStyle(color: Colors.white, fontSize: 20),
           ),
         ),
       ),
     );
   }
-
   // Method to show the image confirmation dialog
   void _showImageConfirmationDialog(BuildContext context) {
     showModalBottomSheet(
@@ -136,7 +132,7 @@ class TurbidityCalculationScreen extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(
-                "Use Default Gray Card Image?",
+                S.of(context).use_default_gray_card_image,
                 style: TextStyle(
                   fontSize: 22,
                   fontWeight: FontWeight.bold,
@@ -163,10 +159,8 @@ class TurbidityCalculationScreen extends StatelessWidget {
                     onPressed: () {
                       Navigator.pop(context); // Close the bottom sheet
                       // Logic to use the default gray card image
-                      // e.g., Navigator.push(...)
                       final XFile defaultImageFile =
                           XFile('assets/gray_card.jpg');
-
                       Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -178,7 +172,7 @@ class TurbidityCalculationScreen extends StatelessWidget {
                       );
                     },
                     child: Text(
-                      "Yes",
+                      S.of(context).yes,
                       style: TextStyle(color: Colors.white),
                     ),
                   ),
@@ -192,7 +186,6 @@ class TurbidityCalculationScreen extends StatelessWidget {
                     onPressed: () {
                       Navigator.pop(context); // Close the bottom sheet
                       // Logic for not using the default gray card image
-                      // e.g., Navigator.push(...)
                       Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -203,7 +196,7 @@ class TurbidityCalculationScreen extends StatelessWidget {
                       );
                     },
                     child: Text(
-                      "No",
+                      S.of(context).no,
                       style: TextStyle(color: Colors.white),
                     ),
                   ),
@@ -216,7 +209,6 @@ class TurbidityCalculationScreen extends StatelessWidget {
     );
   }
 }
-
 class CaptureImageScreen extends StatefulWidget {
   final XFile? imageFile; // Nullable string for the image path
   final bool isGrayCardSelected;
@@ -224,11 +216,9 @@ class CaptureImageScreen extends StatefulWidget {
   @override
   _CaptureImageScreenState createState() => _CaptureImageScreenState();
 }
-
 class _CaptureImageScreenState extends State<CaptureImageScreen> {
   static const services.MethodChannel _channel =
       services.MethodChannel('com.example.neer/exif');
-
   late CameraController _controller;
   Future<void>? _initializeControllerFuture;
   int _currentIndex = 0; // Track the current tab index
@@ -242,16 +232,12 @@ class _CaptureImageScreenState extends State<CaptureImageScreen> {
   double? _gravityX = 0.0;
   double? _gravityY = 0.0;
   double? _gravityZ = 0.0;
-
   double? _zeroX = 0.0;
   double? _zeroY = 0.0;
   double? _zeroZ = 1.0; // Assuming zero vector as (0, 0, 1)
-
   List<double> expT = List<double>.filled(3, 0.0);
   List<double> ISO = List<double>.filled(3, 0.0);
-
   bool _isCaptureEnabled = false;
-
   bool _isAnalysisDone = false;
   String? chlorophyll = "";
   String? Turbidity;
@@ -269,12 +255,12 @@ class _CaptureImageScreenState extends State<CaptureImageScreen> {
   late double _refGreen;
   late double _refBlue;
   String? _turbidityValue;
+  String? chlorophyllValue;
   String? _spmValue;
   bool isLoading = false;
   StreamSubscription<AccelerometerEvent>? _accelerometerSubscription;
   late double latitude;
   late double longitude;
-
   @override
   void initState() {
     super.initState();
@@ -282,48 +268,38 @@ class _CaptureImageScreenState extends State<CaptureImageScreen> {
       _resizeAndStoreImage(widget.imageFile!);
       changeTabColor();
     }
-
     getCoordinates();
     expT[0] = 0.071428575;
     expT[1] = 0.071428575;
     expT[2] = 0.071428575;
-
     ISO[0] = 800;
     ISO[1] = 800;
     ISO[2] = 400;
-
     _initializeCamera();
     _initializeSensors();
   }
-
   void changeTabColor() {
     _tabColors[_currentIndex] = Colors.green;
     setState(() {
       _currentIndex++;
     });
   }
-
   Future<void> _resizeAndStoreImage(XFile imageFile) async {
     try {
       // Read the asset image file
       final ByteData bytes = await rootBundle.load('assets/gray_card.jpg');
       final Uint8List list = bytes.buffer.asUint8List();
-
       // Decode the image
       img.Image? originalImage = img.decodeImage(list);
-
       if (originalImage != null) {
         // Resize the image to 480x720
         img.Image resizedImage =
             img.copyResize(originalImage, width: 480, height: 720);
-
         // Convert resized image back to bytes
         final List<int> resizedBytes = img.encodeJpg(resizedImage);
-
         // Get the temporary directory to save the resized image
         final Directory tempDir = await getTemporaryDirectory();
         final String tempPath = '${tempDir.path}/resized_gray_card.jpg';
-
         // Save the resized image to the temporary directory
         File tempFile = File(tempPath)..writeAsBytesSync(resizedBytes);
         setState(() {
@@ -335,7 +311,6 @@ class _CaptureImageScreenState extends State<CaptureImageScreen> {
       print("Error loading asset: $e");
     }
   }
-
   Future<void> _initializeCamera() async {
     try {
       final cameras = await availableCameras();
@@ -347,7 +322,6 @@ class _CaptureImageScreenState extends State<CaptureImageScreen> {
       print("Error initializing camera: $e");
     }
   }
-
   void _initializeSensors() {
     _accelerometerSubscription =
         accelerometerEvents.listen((AccelerometerEvent event) {
@@ -355,13 +329,11 @@ class _CaptureImageScreenState extends State<CaptureImageScreen> {
       _calculateAngleAndUpdateUI();
     });
   }
-
   void _updateGravity(AccelerometerEvent event) {
     _gravityX = event.x;
     _gravityY = event.y;
     _gravityZ = event.z;
   }
-
   void _calculateAngleAndUpdateUI() {
     double scale1 =
         sqrt(pow(_gravityX!, 2) + pow(_gravityY!, 2) + pow(_gravityZ!, 2));
@@ -369,16 +341,13 @@ class _CaptureImageScreenState extends State<CaptureImageScreen> {
             _zeroY! * _gravityY! +
             _zeroZ! * _gravityZ!) /
         (scale1 * sqrt(pow(_zeroX!, 2) + pow(_zeroY!, 2) + pow(_zeroZ!, 2)));
-
     // Clamping the cos value
     if (cos > 1.0) {
       cos = 1.0;
     } else if (cos < -1.0) {
       cos = -1.0;
     }
-
     double angleInDegrees = acos(cos) * (180 / pi);
-
     setState(() {
       _pitchValue = angleInDegrees;
       // Enable capture if angle is within specified range
@@ -386,16 +355,13 @@ class _CaptureImageScreenState extends State<CaptureImageScreen> {
           _pitchValue! >= 35 && _pitchValue! <= 45; // Adjust as per requirement
     });
   }
-
   Future<List<List<double>>> getRGBFromImages(
       List<XFile?> capturedImages) async {
     List<List<double>> rgbValuesList = [];
-
     for (XFile? imageFile in capturedImages) {
       if (imageFile != null) {
         // Load the image and convert it to a Bitmap or similar format
         img.Image? image = img.decodeImage(await imageFile.readAsBytes());
-
         if (image != null) {
           // Calculate RGB values for the image
           List<double> rgbValues = getRGB(image);
@@ -403,15 +369,12 @@ class _CaptureImageScreenState extends State<CaptureImageScreen> {
         }
       }
     }
-
     return rgbValuesList;
   }
-
   void result(List<List<double>> capturedImagesRGBData) {
     List<double> Ed_RGB = capturedImagesRGBData[0];
     List<double> Lw_RGB = capturedImagesRGBData[1];
     List<double> Ls_RGB = capturedImagesRGBData[2];
-
     double EdR = Ed_RGB[0];
     double EdG = Ed_RGB[1];
     double EdB = Ed_RGB[2];
@@ -421,41 +384,38 @@ class _CaptureImageScreenState extends State<CaptureImageScreen> {
     double LwR = Lw_RGB[0];
     double LwG = Lw_RGB[1];
     double LwB = Lw_RGB[2];
-
     double Wref, Sref, Gref;
-
     // Calculation for Red Reflectance
     Wref = LwR / (expT[1] * ISO[1]);
     Sref = 0.028 * (LsR / (expT[2] * ISO[2]));
     Gref = 17.453292519943297 * (EdR / (expT[0] * ISO[0]));
     double RrsR = (Wref - Sref) / Gref;
-
     // Calculation for Green Reflectance
     double GreenWref = LwG / (expT[1] * ISO[1]);
     double GreenSref = 0.028 * (LsG / (expT[2] * ISO[2]));
     double GreenGref = 17.453292519943297 * (EdG / (expT[0] * ISO[0]));
     double GreenRrsG = (GreenWref - GreenSref) / GreenGref;
-
     // Calculation for Blue Reflectance
     double BlueWref = LwB / (expT[1] * ISO[1]);
     double BlueSref = 0.028 * (LsB / (expT[2] * ISO[2]));
     double BlueGref = 17.453292519943297 * (EdB / (expT[0] * ISO[0]));
     double BlueRrsB = (BlueWref - BlueSref) / BlueGref;
-
     double refRed = (RrsR * 1000000).roundToDouble() / 1000000;
     double refGreen = (GreenRrsG * 1000000).roundToDouble() / 1000000;
     double refBlue = (BlueRrsB * 1000000).roundToDouble() / 1000000;
-
+    double chlorophyll = computeChlorophyll(refBlue, refGreen);
+    setState(() {
+      chlorophyllValue = chlorophyll.toStringAsFixed(3) + " mg/L";
+    });
+    print("chlorophyll ${chlorophyll.toStringAsFixed(3)}");
     print("RrsR $RrsR");
     if (RrsR >= 0.049) {
       Turbidity = ">1357±0";
       SPM = ">1357±0";
       tur = 1357;
       spm = 1357;
-
       print("Turbidity : $Turbidity" + "$ntu");
       print("SPM : $SPM" + "$gm");
-
       setState(() {
         _turbidityValue = Turbidity! + ntu;
         _spmValue = SPM! + gm;
@@ -496,6 +456,12 @@ class _CaptureImageScreenState extends State<CaptureImageScreen> {
     print("Ref blue : $refBlue");
   }
 
+  // Compute Chlorophyll Value
+  double computeChlorophyll(double refBlue, double refGreen) {
+    double ratioBAndG = refBlue / refGreen;
+    return (0.03 * (pow(ratioBAndG, 3.672243)));
+  }
+
 // Function to calculate RGB values from a decoded image
   List<double> getRGB(img.Image image) {
     double redColors = 0.0;
@@ -526,11 +492,9 @@ class _CaptureImageScreenState extends State<CaptureImageScreen> {
       blueColors / pixelCount
     ];
   }
-
   void _captureImage() async {
     try {
       await _initializeControllerFuture; // Ensure the camera is initialized
-
       // Check the pitch value based on the current index (tab)
       if ((_currentIndex == 0 || _currentIndex == 1) &&
           _pitchValue != null &&
@@ -570,7 +534,6 @@ class _CaptureImageScreenState extends State<CaptureImageScreen> {
       print(e);
     }
   }
-
   void _getImageDimensions(XFile imageFile) async {
     try {
       // Load the image file
@@ -732,7 +695,7 @@ class _CaptureImageScreenState extends State<CaptureImageScreen> {
                     isLoading = true;
                   });
                   DateTime now = DateTime.now();
-                  String formattedDate = "${now.year}-${now.month}-${now.day}";
+                  String formattedDate = DateFormat('yyyy-MM-dd').format(now);
                   String formattedTime =
                       DateFormat('HH:mm:ss').format(now); // Format current time
 
@@ -741,25 +704,6 @@ class _CaptureImageScreenState extends State<CaptureImageScreen> {
 
                   String date = formattedDate;
                   String time = formattedTime;
-                  // late double lat, long;
-
-                  // Get the current location
-                  // try {
-                  //   Position position = await _getCurrentLocation();
-                  //   print(
-                  //       "Current Location: Latitude ${position.latitude}, Longitude ${position.longitude}");
-                  //   lat = position.latitude;
-                  //   long = position.longitude;
-                  //   setState(() {
-                  //     isLoading = false;
-                  //   });
-                  // } catch (e) {
-                  //   print("Error getting location: $e");
-                  //   _showPopupMessage("Failed to get location.");
-                  // }
-
-                  // print("Chlorophyll : $chlorophyll");
-
                   for (var image in _capturedImages) {
                     if (image == null) {
                       setState(() {
@@ -854,7 +798,7 @@ class _CaptureImageScreenState extends State<CaptureImageScreen> {
                             date: date,
                             time: time,
                             turbidity: _turbidityValue!,
-                            chlorophyll: chlorophyll!,
+                            chlorophyll: chlorophyllValue!,
                             spm: _spmValue!,
                             latitude: latitude,
                             longitude: longitude,
@@ -901,7 +845,7 @@ class _CaptureImageScreenState extends State<CaptureImageScreen> {
                 children: [
                   CircularProgressIndicator(),
                   SizedBox(height: 16.0),
-                  Text("Analyzing"),
+                  Text(S.of(context).analyzing),
                 ],
               ),
             )
@@ -932,7 +876,7 @@ class _CaptureImageScreenState extends State<CaptureImageScreen> {
                             minimumSize: Size(double.infinity,
                                 35), // Make button height consistent
                           ),
-                          child: Text("Preview Images"),
+                          child: Text(S.of(context).preview_images),
                         ),
                       ),
                       // Image below the preview button on the left side
@@ -1012,14 +956,14 @@ class _CaptureImageScreenState extends State<CaptureImageScreen> {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: Text("Capture"),
+          title: Text(S.of(context).capture),
           content: Text(message),
           actions: [
             TextButton(
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: Text("OK"),
+              child: Text(S.of(context).ok),
             ),
           ],
         );
@@ -1081,7 +1025,7 @@ class PreviewScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Captured Images Preview"),
+        title: Text(S.of(context).captured_images_preview),
         backgroundColor: Color(0xFF4facfc),
       ),
       body: ListView.builder(
@@ -1113,7 +1057,7 @@ class PreviewScreen extends StatelessWidget {
               : Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
-                    "No image captured for $label",
+                    S.of(context).no_image_captured(label.toString()),
                     style: TextStyle(fontSize: 18, color: Colors.red),
                   ),
                 );

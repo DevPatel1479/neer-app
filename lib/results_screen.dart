@@ -6,6 +6,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 
+import 'generated/l10n.dart';
+
 class ResultsScreen extends StatefulWidget {
   final double triangleValue;
   final double xValue;
@@ -109,12 +111,12 @@ class _ResultsScreenState extends State<ResultsScreen> {
           .set(waterImageData);
 
       // Show success message
-      ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text('Data saved successfully!')));
+      ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(S.of(context).data_saved_successfully)));
     } catch (e) {
       // Handle errors
-      ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text('Failed to save data: $e')));
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text(S.of(context).data_save_failed(e.toString()))));
     } finally {
       setState(() {
         _isLoading = false; // Stop loading
@@ -131,7 +133,7 @@ class _ResultsScreenState extends State<ResultsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Results'),
+        title: Text(S.of(context).results_title),
         backgroundColor: Colors.blueAccent,
       ),
       body: Container(
@@ -153,7 +155,7 @@ class _ResultsScreenState extends State<ResultsScreen> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(
-                      'Results',
+                      S.of(context).results_title,
                       style:
                           TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                     ),
@@ -177,7 +179,7 @@ class _ResultsScreenState extends State<ResultsScreen> {
                           : _saveData, // Disable button while loading
                       child: _isLoading
                           ? CircularProgressIndicator()
-                          : Text('Submit'),
+                          : Text(S.of(context).submit),
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.blueAccent,
                         padding:

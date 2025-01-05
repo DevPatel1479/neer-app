@@ -7,6 +7,7 @@ import 'dart:async';
 import 'dart:math';
 import 'dart:io'; // Add this import for File
 import 'package:image/image.dart' as img; // Import image package
+import 'generated/l10n.dart';
 
 class CameraForFui extends StatefulWidget {
   @override
@@ -162,24 +163,14 @@ class _CameraForFuiState extends State<CameraForFui> {
       double z =
           (0.0 * redColors) + (0.0565 * greenColors) + (5.594 * blueColors);
 
-      print("red : $redColors");
-      print("green : $greenColors");
-      print("blue : $blueColors");
-
       // Normalize to [0, 1]
       double sum = x + y + z;
-      // if (sum > 0) {
-      //   x /= sum;
-      //   y /= sum;
-      // }
       if (sum > 0) {
         x = x / sum;
         y = y / sum;
       }
-
       x = x - (1 / 3);
       y = y - (1 / 3);
-
       // Convert to degrees
       double arctan = _arctan(y, x);
       arctan = arctan * 2 * 3.14;
@@ -251,7 +242,7 @@ class _CameraForFuiState extends State<CameraForFui> {
                     foregroundColor: Color(0xFF020202),
                     textStyle: TextStyle(fontSize: 15),
                   ),
-                  child: Text('Water'),
+                  child: Text(S.of(context).water),
                 ),
               ),
             ],
@@ -285,7 +276,7 @@ class _CameraForFuiState extends State<CameraForFui> {
                     foregroundColor: Color(0xFF020202),
                     textStyle: TextStyle(fontSize: 15),
                   ),
-                  child: Text('New Measurement'),
+                  child: Text(S.of(context).newMeasurementButtonText),
                 ),
               ),
             ],
@@ -312,7 +303,7 @@ class _CameraForFuiState extends State<CameraForFui> {
                     child: Text(
                       _pitchValue != null
                           ? _pitchValue!.toStringAsFixed(2)
-                          : '0.00', // Display pitch value
+                          : S.of(context).defaultPitchValue, // Display pitch value
                       style: TextStyle(fontSize: 35, color: Color(0xFF040404)),
                     ),
                   ),
