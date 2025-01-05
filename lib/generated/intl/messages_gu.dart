@@ -72,6 +72,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("કેચ કરેલી છબીઓ પૂર્વાવલોકન"),
         "check_boxes_instruction": MessageLookupByLibrary.simpleMessage(
             "રુચિના પેરામિટર્સ પસંદ કરવા માટે બોક્સ ચેક કરો/આઇકન પર ક્લિક કરો"),
+        "chlorophyll": MessageLookupByLibrary.simpleMessage("ક્લોરોફિલ"),
         "click_get_started": MessageLookupByLibrary.simpleMessage(
             "“ચાલો શરૂ કરીએ” બટન પર ક્લિક કરો જેથી કરીને તમે યુઝર માહિતી પેજ પર જઈ શકો. સ્થાન સેટ કરવા માટે ચાલુ રાખો, પાણીના શરીરનો પસંદ કરો અને માહિતી મેન્યુઅલી દાખલ કરો. ટર્બિડિટી, ક્લોરોફિલ અને FUI ઇન્ડેક્સ અંદાજ માટે પાણી, ગ્રે કાર્ડ અને આકાશની છાયાઓ લેવામાં આવે છે. ખાતરી કરો કે તમે દરેક પૃષ્ઠની નીચે \'સેવ\' બટન પર ટચ કરો. વ્યક્તિગત પૃષ્ઠે દર્શાવું છે કે આગળ કેવી રીતે જવું. અંતિમ ટૅબ યુઝર ડેટા સબમિટ કરવામાં મદદ કરે છે."),
         "click_to_save":
@@ -130,7 +131,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "enterEmailPassword": MessageLookupByLibrary.simpleMessage(
             "કૃપા કરીને તમારું ઇમેલ અને પાસવર્ડ દાખલ કરો."),
         "enter_depth_in_m":
-            MessageLookupByLibrary.simpleMessage("ગહરાઇ (મી) માં દાખલ કરો"),
+            MessageLookupByLibrary.simpleMessage("ગહરાઇ (સેમી) માં દાખલ કરો"),
         "enter_observation_title":
             MessageLookupByLibrary.simpleMessage("અવલોકન શીર્ષક દાખલ કરો"),
         "error": m4,

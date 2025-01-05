@@ -50,35 +50,6 @@ class _SelectedEntryState extends State<SelectedEntry> {
       _latitude = prefs.getDouble('latitude');
       _longitude = prefs.getDouble('longitude');
     });
-    // try {
-    //   // Check for location permission
-    //   LocationPermission permission = await Geolocator.checkPermission();
-    //   if (permission == LocationPermission.denied) {
-    //     permission = await Geolocator.requestPermission();
-    //   }
-
-    //   if (permission == LocationPermission.deniedForever) {
-    //     // Location permissions are permanently denied, handle accordingly
-    //     ScaffoldMessenger.of(context).showSnackBar(
-    //       SnackBar(
-    //           content: Text('Location permissions are permanently denied.')),
-    //     );
-    //     return;
-    //   }
-
-    //   // Get the current position
-    //   Position position = await Geolocator.getCurrentPosition(
-    //       desiredAccuracy: LocationAccuracy.high);
-    //   setState(() {
-    //     _latitude = position.latitude;
-    //     _longitude = position.longitude;
-    //   });
-    // } catch (e) {
-    //   print('Error fetching location: $e');
-    //   ScaffoldMessenger.of(context).showSnackBar(
-    //     SnackBar(content: Text('Error fetching location: $e')),
-    //   );
-    // }
   }
 
   @override
@@ -148,10 +119,10 @@ class _SelectedEntryState extends State<SelectedEntry> {
         label = 'pH Value';
         hint = 'Enter pH value (0.0-14.0)';
         break;
-      case "Water Depth":
-        label = 'Water Depth (m)';
-        hint = 'Enter depth value (m)';
-        break;
+      // case "Water Depth":
+      //   label = 'Water Depth (m)';
+      //   hint = 'Enter depth value (m)';
+      //   break;
       case "Dissolved O2":
         label = 'Dissolved O2 (ml/L)';
         hint = 'Enter O2 value (ml/L)';
@@ -235,12 +206,12 @@ class _SelectedEntryState extends State<SelectedEntry> {
               isValid = false;
             }
             break;
-          case "Water Depth":
-            if (double.tryParse(value) == null) {
-              _errors[parameter] = 'Invalid depth value';
-              isValid = false;
-            }
-            break;
+          // case "Water Depth":
+          //   if (double.tryParse(value) == null) {
+          //     _errors[parameter] = 'Invalid depth value';
+          //     isValid = false;
+          //   }
+          //   break;
           case "Dissolved O2":
             if (double.tryParse(value) == null) {
               _errors[parameter] = 'Invalid O2 value';
@@ -339,7 +310,7 @@ class _SelectedEntryState extends State<SelectedEntry> {
         'ref_blue': 0,
         'temperature': dataToSave['Temperature'],
         'ph_value': dataToSave['pH'],
-        'water_depth': dataToSave['Water Depth'],
+        // 'water_depth': dataToSave['Water Depth'],
         'dissolved_O2': dataToSave['Dissolved O2'],
         'secchi_depth': 0,
       };

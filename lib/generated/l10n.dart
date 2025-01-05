@@ -720,10 +720,10 @@ class S {
     );
   }
 
-  /// `Enter the depth in (m)`
+  /// `Enter the depth in (cm)`
   String get enter_depth_in_m {
     return Intl.message(
-      'Enter the depth in (m)',
+      'Enter the depth in (cm)',
       name: 'enter_depth_in_m',
       desc: '',
       args: [],
@@ -2155,6 +2155,16 @@ class S {
     return Intl.message(
       'CLOSE',
       name: 'closeButton',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Chlorophyll`
+  String get chlorophyll {
+    return Intl.message(
+      'Chlorophyll',
+      name: 'chlorophyll',
       desc: '',
       args: [],
     );

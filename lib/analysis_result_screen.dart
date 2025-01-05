@@ -19,6 +19,7 @@ class AnalysisResultScreen extends StatefulWidget {
   final double refRed;
   final double refGreen;
   final double refBlue;
+
   final List<XFile?> capturedImages;
 
   AnalysisResultScreen({
@@ -76,6 +77,8 @@ class _AnalysisResultScreenState extends State<AnalysisResultScreen> {
                     _buildTableRow(
                         S.of(context).turbidity, "${widget.turbidity}"),
                     _buildTableRow(S.of(context).spm, "${widget.spm}"),
+                    _buildTableRow(
+                        S.of(context).chlorophyll, "${widget.chlorophyll}"),
                     _buildTableRow(
                         S.of(context).latitude, widget.latitude.toString()),
                     _buildTableRow(
@@ -212,6 +215,7 @@ class _AnalysisResultScreenState extends State<AnalysisResultScreen> {
       'water_body': waterBody,
       'turbidity': widget.turbidity,
       'spm': widget.spm,
+      'chloro': widget.chlorophyll,
       'latitude': widget.latitude,
       'longitude': widget.longitude,
       'ref_red': widget.refRed,
@@ -330,6 +334,7 @@ class _AnalysisResultScreenState extends State<AnalysisResultScreen> {
       'time': widget.time,
       'turbidity': widget.turbidity,
       'spm': widget.spm,
+      'chlorophyll': widget.chlorophyll,
       'latitude': widget.latitude,
       'longitude': widget.longitude,
       'ref_red': widget.refRed,
@@ -353,7 +358,7 @@ class _AnalysisResultScreenState extends State<AnalysisResultScreen> {
     // Open the database and create the table if it doesn't exist
     return await openDatabase(
       path,
-      version: 2,
+      version: 3,
       onCreate: (Database db, int version) async {
         await db.execute('''
           CREATE TABLE observations_data (
@@ -363,6 +368,7 @@ class _AnalysisResultScreenState extends State<AnalysisResultScreen> {
             time TEXT,
             turbidity TEXT,
             spm TEXT,
+            chlorophyll TEXT,
             latitude REAL,
             longitude REAL,
             ref_red REAL,

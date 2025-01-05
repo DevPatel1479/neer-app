@@ -9,18 +9,15 @@ class ObservationDataScreen extends StatefulWidget {
   @override
   _ObservationDataScreenState createState() => _ObservationDataScreenState();
 }
-
 class _ObservationDataScreenState extends State<ObservationDataScreen> {
   late Future<List<Map<String, dynamic>>> _observations;
   DateTime? _startDate;
   DateTime? _endDate;
-
   @override
   void initState() {
     super.initState();
     _observations = fetchObservations();
   }
-
   Future<List<Map<String, dynamic>>> fetchObservations() async {
     final db =
         await DatabaseHelper.instance.database; // Access the singleton instance
@@ -367,6 +364,20 @@ class ObservationDetailScreen extends StatelessWidget {
                     children: [
                       Padding(
                         padding: const EdgeInsets.all(8.0),
+                        child: Text(S.of(context).chlorophyll),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          (observationData['chlorophyll']?.toString() ?? 'N/A'),
+                        ),
+                      ),
+                    ],
+                  ),
+                  TableRow(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
                         child: Text(S.of(context).temperature),
                       ),
                       Padding(
@@ -387,20 +398,6 @@ class ObservationDetailScreen extends StatelessWidget {
                         padding: const EdgeInsets.all(8.0),
                         child: Text(
                           (observationData['ph_value']?.toString() ?? 'N/A'),
-                        ),
-                      ),
-                    ],
-                  ),
-                  TableRow(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text(S.of(context).water_depth),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text(
-                          (observationData['water_depth']?.toString() ?? 'N/A'),
                         ),
                       ),
                     ],

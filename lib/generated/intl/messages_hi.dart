@@ -72,6 +72,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "कैप्चर की गई छवियों का पूर्वावलोकन"),
         "check_boxes_instruction": MessageLookupByLibrary.simpleMessage(
             "रुचि के पैरामीटर को चयनित करने के लिए बॉक्स को चेक करें/आइकन पर क्लिक करें"),
+        "chlorophyll": MessageLookupByLibrary.simpleMessage("क्लोरोफिल"),
         "click_get_started": MessageLookupByLibrary.simpleMessage(
             "“चलो शुरू करें” बटन पर क्लिक करें ताकि आप उपयोगकर्ता जानकारी पृष्ठ पर जाएं। स्थान सेट करने के लिए जारी रखें, जल निकाय का चयन करें और जानकारी मैन्युअल रूप से दर्ज करें। पानी, ग्रे कार्ड और आकाश की छवियां टर्बिडिटी, क्लोरोफिल और FUI इंडेक्स का अनुमान लगाने के लिए ली जाती हैं। सुनिश्चित करें कि आप प्रत्येक पृष्ठ के नीचे दिए गए सेव बटन पर क्लिक करें। प्रत्येक पृष्ठ में बताया जाता है कि अगला कदम कैसे बढ़ाना है। अंतिम टैब उपयोगकर्ता डेटा सबमिट करने में मदद करता है।"),
         "click_to_save":
@@ -129,7 +130,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "enterEmailPassword": MessageLookupByLibrary.simpleMessage(
             "कृपया अपना ईमेल और पासवर्ड दर्ज करें।"),
         "enter_depth_in_m":
-            MessageLookupByLibrary.simpleMessage("गहराई (मी) में दर्ज करें"),
+            MessageLookupByLibrary.simpleMessage("गहराई (सेमी) में दर्ज करें"),
         "enter_observation_title":
             MessageLookupByLibrary.simpleMessage("निरीक्षण शीर्षक दर्ज करें"),
         "error": m4,

@@ -163,24 +163,14 @@ class _CameraForFuiState extends State<CameraForFui> {
       double z =
           (0.0 * redColors) + (0.0565 * greenColors) + (5.594 * blueColors);
 
-      print("red : $redColors");
-      print("green : $greenColors");
-      print("blue : $blueColors");
-
       // Normalize to [0, 1]
       double sum = x + y + z;
-      // if (sum > 0) {
-      //   x /= sum;
-      //   y /= sum;
-      // }
       if (sum > 0) {
         x = x / sum;
         y = y / sum;
       }
-
       x = x - (1 / 3);
       y = y - (1 / 3);
-
       // Convert to degrees
       double arctan = _arctan(y, x);
       arctan = arctan * 2 * 3.14;

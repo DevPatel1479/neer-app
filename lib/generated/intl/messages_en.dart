@@ -72,6 +72,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Captured Images Preview"),
         "check_boxes_instruction": MessageLookupByLibrary.simpleMessage(
             "Check the boxes/click on icon to select parameters of interest"),
+        "chlorophyll": MessageLookupByLibrary.simpleMessage("Chlorophyll"),
         "click_get_started": MessageLookupByLibrary.simpleMessage(
             "Click the “Let’s get started” button to move on to the user information page. Continue to set the location, Select the water body and enter the information manually. Images of water, Gray card and sky are taken for Turbidity, chlorophyll and FUI index estimation. Be sure to touch the save button on the bottom of each page. Individual page instructs that how to proceed to next. The final tab helps to submit the user data."),
         "click_to_save": MessageLookupByLibrary.simpleMessage("Click To Save"),
@@ -128,7 +129,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "enterEmailPassword": MessageLookupByLibrary.simpleMessage(
             "Please enter your email and password."),
         "enter_depth_in_m":
-            MessageLookupByLibrary.simpleMessage("Enter the depth in (m)"),
+            MessageLookupByLibrary.simpleMessage("Enter the depth in (cm)"),
         "enter_observation_title":
             MessageLookupByLibrary.simpleMessage("Enter Observation Title"),
         "error": m4,

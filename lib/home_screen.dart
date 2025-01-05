@@ -17,11 +17,11 @@ class HomePage extends StatelessWidget {
         title: Row(
           children: [
             IconButton(
-              icon: Icon(Icons.arrow_back, color: Colors.black),
+              icon: Icon(Icons.home, color: Colors.black),
               onPressed: () {
                 // Clears the navigation stack and navigates to InstructionScreen
                 Navigator.of(context).pushAndRemoveUntil(
-                  MaterialPageRoute(builder: (context) => FirstHomeScreen()),
+                  MaterialPageRoute(builder: (context) => InstructionScreen()),
                   (Route<dynamic> route) => false,
                 );
               },

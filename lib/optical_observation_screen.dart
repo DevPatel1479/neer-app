@@ -218,7 +218,7 @@ class _OpticalObservationsScreenState extends State<OpticalObservationsScreen> {
                 width: double.infinity,
                 height: 500,
                 child: Image.asset(
-                  'assets/app.png', // Replace with your actual image asset
+                  'assets/app.png', // Secchi disk image
                   fit: BoxFit.cover,
                 ),
               ),

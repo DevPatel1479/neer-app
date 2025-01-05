@@ -23,17 +23,6 @@ class _InstructionScreenState extends State<InstructionScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Text("Neer App"),
-      //   backgroundColor: Color.fromARGB(255, 243, 232, 232),
-      //   elevation: 0,
-      //   leading: IconButton(
-      //     icon: Icon(Icons.arrow_back, color: Colors.black),
-      //     onPressed: () {
-      //       Navigator.of(context).pop(); // Navigate back to the previous screen
-      //     },
-      //   ),
-      // ),
       backgroundColor: Colors.transparent,
       body: SingleChildScrollView(
         child: Column(
@@ -77,26 +66,6 @@ class _InstructionScreenState extends State<InstructionScreen> {
                       ),
                     ),
                   ),
-                  // SizedBox(height: 10),
-                  // Container(
-                  //   width: 380,
-                  //   height: 60,
-                  //   decoration: BoxDecoration(
-                  //     color: Colors.white,
-                  //     border: Border.all(color: Color(0xFF3284CC)),
-                  //     borderRadius: BorderRadius.circular(4),
-                  //   ),
-                  //   child: Center(
-                  //     child: Text(
-                  //       'ENGLISH',
-                  //       style: TextStyle(
-                  //         color: Color(0xFF3284CC),
-                  //         fontSize: 25,
-                  //         fontWeight: FontWeight.bold,
-                  //       ),
-                  //     ),
-                  //   ),
-                  // ),
                   SizedBox(height: 10),
                   _buildSectionTitle(S.of(context).aboutNeer),
                   if (_expandedSection == 'About NEER?' ||
