@@ -1,4 +1,5 @@
 
+
 import 'package:flutter/material.dart';
 import 'package:neer/language_selection_screen.dart';
 import 'package:neer/splash_screen.dart';
@@ -10,13 +11,13 @@ import 'package:shared_preferences/shared_preferences.dart';
 void main() async {
   // Firebase configuration options
   const FirebaseOptions firebaseOptions = FirebaseOptions(
-    apiKey:
-        '', // Replace with your API key
+
     appId:
-        '', // Replace with your App ID
-    messagingSenderId: '', // Replace with your Messaging Sender ID
-    projectId: '', // Replace with your Project ID
-    storageBucket: '', // Replace with your Storage Bucket
+        'APPID', // Replace with your App ID
+    messagingSenderId: 'MESSAGINGS_SENDER_ID', // Replace with your Messaging Sender ID
+    projectId: 'PROJECT_NAME', // Replace with your Project ID
+    storageBucket: 'STORAGE_BUCKET_URL', // Replace with your Storage Bucket
+
   );
 
   WidgetsFlutterBinding.ensureInitialized();
